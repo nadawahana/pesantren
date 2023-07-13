@@ -87,7 +87,7 @@
                       Pendidikan Pesantren Thawalib Tanjung limau menekankan pada pembentukan pribadi muslim, mukmin dan muhsin yang Berbudi Tinggi, Berbadan Sehat, Berpengetahuan Luas, Berpikiran Bebas dan Beramal Ikhlas.
                     </p>
                     <div class="btn-box">
-                      <a href="/login" class="btn-1">
+                      <a href="{{ route('login')}}" class="btn-1">
                         Daftar
                       </a>
 

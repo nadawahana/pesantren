@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BuktiTF;
 use Illuminate\Http\Request;
 use App\DataSantri;
+use App\Http\Requests\Santri\DataCalonSantriRequest;
 use App\NilaiTotal;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -13,42 +14,38 @@ use Dompdf\Dompdf;
 
 class DataDiriController extends Controller
 {
-    public function uploadDataDiri(Request $request){
-        $request->validate([
-            'nama_lengkap' => 'required|string',
-            'nisn' => 'required|string',
-            'tempat_lahir'=> 'required|string',
-            'tanggal_lahir'=> 'required|string',
-            'jenkel'=>'required|string',
-            'asal_sekolah'=>'required|string',
-            'jalur_masuk'=>'required|string',
-            'hp_ayah'=>'required|string',
-            'file_name'=>'required|file',//max 2 mb ya bos
-        ]);
-
+    public function uploadDataDiri(DataCalonSantriRequest $request)
+    {
         $filename = $request->file_name->store('public/files');
         $fileUrl = Storage::url($filename);
         $user = Auth::id();
 
-        DataSantri::create([
-            'nama_lengkap'=>$request->nama_lengkap,
-            'nisn'=>$request->nisn,
-            'tempat_lahir'=>$request->tempat_lahir,
-            'tanggal_lahir'=>$request->tanggal_lahir,
-            'jenkel'=>$request->jenkel,
-            'asal_sekolah'=>$request->asal_sekolah,
-            'jalur_masuk'=>$request->jalur_masuk,
-            'hp_ayah'=>$request->hp_ayah,
-            'file_name'=>basename($filename),
-            'user_id'=>$user
-        ]);
+        DataSantri::updateOrCreate(
+            [
+                'user_id' => $user
+            ],
+            [
+                'nama_lengkap' => $request->nama_lengkap,
+                'nisn' => $request->nisn,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'jenkel' => $request->jenkel,
+                'asal_sekolah' => $request->asal_sekolah,
+                'jalur_masuk' => $request->jalur_masuk,
+                'hp_ayah' => $request->hp_ayah,
+                'file_name' => basename($filename),
+
+            ]
+        );
 
         $message = 'Berhasil upload data santri';
-        return view('userdatadaftar',compact('message'));
+        return redirect()->route('inputdaftar')->with('message', 'Data diri berhasil perbarui');
+        // return view('userdatadaftar', compact('message'));
         // return response()->json(['message'=>'berhasil upload data santri','data'=>'cek ajalah di database'],201);
     }
 
-    public function TampilDataDiri(){
+    public function TampilDataDiri()
+    {
         $data = DataSantri::all()->paginate(5);
 
         return view('admindaftar', compact('data'));
@@ -80,7 +77,7 @@ class DataDiriController extends Controller
         if ($paymentProof) {
             // User has submitted the payment proof
             $data = DataSantri::all();
-            return redirect()->route('export-pdf',compact('data'));
+            return redirect()->route('export-pdf', compact('data'));
         } else {
             // User has not submitted the payment proof
             return redirect()->back()->with('message', 'Untuk Mencetak Kartu Ujian Anda Harus Membayar Terlebih Dahulu!.');
