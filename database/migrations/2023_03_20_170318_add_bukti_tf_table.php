@@ -15,9 +15,9 @@ class AddBuktiTfTable extends Migration
     {
         Schema::create('bukti_tf', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('user_id');
+            $table->foreignId('user_id')->unique();
             $table->string('bukti_tf');
+            $table->timestamps();
         });
     }
 

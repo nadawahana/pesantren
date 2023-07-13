@@ -14,6 +14,7 @@ class AddDataOrtu extends Migration
     public function up()
     {
         Schema::create('data_ortu', function (Blueprint $table) {
+            $table->id();
             $table->string('nama_ayah');
             $table->string('tempat_lahir_ayah');
             $table->string('tanggal_lahir_ayah');
@@ -27,9 +28,9 @@ class AddDataOrtu extends Migration
             $table->string('pekerjaan_ibu');
             $table->string('penghasilan_ibu');
             $table->string('alamat');
+            $table->foreignId('user_id')->unique();
+            $table->timestamps();
         });
-
-            
     }
 
     /**
@@ -39,8 +40,6 @@ class AddDataOrtu extends Migration
      */
     public function down()
     {
-        Schema::table('data_ortu', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('data_ortu');
     }
 }

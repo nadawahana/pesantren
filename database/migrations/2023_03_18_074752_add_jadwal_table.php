@@ -15,12 +15,12 @@ class AddJadwalTable extends Migration
     {
         Schema::create('gelombang1', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->date('batas_waktu_pendaftaran');
             $table->date('ujian_lisan');
             $table->date('ujian_tulisan');
             $table->date('pengumuman_hasil');
             $table->date('daftar_ulang');
+            $table->timestamps();
         });
     }
 

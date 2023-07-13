@@ -14,6 +14,7 @@ class AddDataNilai extends Migration
     public function up()
     {
         Schema::create('data_nilai', function (Blueprint $table) {
+            $table->id();
             $table->string('nama');
             $table->string('baca_alquran');
             $table->string('sholat');
@@ -29,8 +30,6 @@ class AddDataNilai extends Migration
      */
     public function down()
     {
-        Schema::table('data_nilai', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('data_nilai');
     }
 }

@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('alamat');
+            $table->string('no_hp');
+            $table->string('username');
+            $table->enum('level', ['admin', 'calon-santri']);
             $table->rememberToken();
             $table->timestamps();
         });

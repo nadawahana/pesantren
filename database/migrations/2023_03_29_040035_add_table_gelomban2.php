@@ -15,12 +15,12 @@ class AddTableGelomban2 extends Migration
     {
         Schema::create('gelombang2', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('batas_waktu_pendaftaran');
             $table->string('ujian_lisan');
             $table->string('ujian_tulisan');
             $table->string('pengumuman_hasil');
             $table->string('daftar_ulang');
+            $table->timestamps();
         });
     }
 

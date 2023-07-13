@@ -14,10 +14,10 @@ class AddTableBuktiTfUlang extends Migration
     public function up()
     {
         Schema::create('tf_ulang', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-            $table->string('user_id');
+            $table->id();
+            $table->foreignId('user_id')->unique();
             $table->string('bukti_tf');
+            $table->timestamps();
         });
     }
     /**
@@ -27,6 +27,6 @@ class AddTableBuktiTfUlang extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tf_ulang');
     }
 }
