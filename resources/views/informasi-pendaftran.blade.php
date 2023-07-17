@@ -30,97 +30,103 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Gelombang 1</h4>
-                        <p class="card-description">
+                        @if ($gelombang1)
+                            <form class="forms-sample">
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Batas Waktu
+                                        Pendaftaran</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="bts_wkt" readonly
+                                            value="{{ $gelombang1->batas_waktu_pendaftaran }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ujian Lisan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="u_l" readonly
+                                            value="{{ $gelombang1->ujian_lisan }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputMobile" class="col-sm-3 col-form-label">Ujian Tulisan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="u_t" readonly
+                                            value="{{ $gelombang1->ujian_tulisan }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Pengumuman
+                                        Hasil</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="p_h" readonly
+                                            value="{{ $gelombang1->pengumuman_hasil }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Daftar
+                                        Ulang</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="d_u" readonly
+                                            value="{{ $gelombang1->daftar_ulang }}">
+                                    </div>
+                                </div>
+                            </form>
+                        @else
+                            Pendaftaran Belum Dibuka
+                        @endif
 
-                        </p>
-                        <form class="forms-sample">
-                            <div class="form-group row">
-                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Batas Waktu
-                                    Pendaftaran</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="bts_wkt" readonly
-                                        value="{{ $gelombang1->batas_waktu_pendaftaran }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ujian Lisan</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="u_l" readonly
-                                        value="{{ $gelombang1->ujian_lisan }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputMobile" class="col-sm-3 col-form-label">Ujian Tulisan</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="u_t" readonly
-                                        value="{{ $gelombang1->ujian_tulisan }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Pengumuman Hasil</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="p_h" readonly
-                                        value="{{ $gelombang1->pengumuman_hasil }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Daftar
-                                    Ulang</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="d_u" readonly
-                                        value="{{ $gelombang1->daftar_ulang }}">
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Gelombang 2</h4>
-                        <p class="card-description">
-
-                        </p>
-                        <form class="forms-sample">
-                            <div class="form-group row">
-                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Batas Waktu
-                                    Pendaftaran</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="bts_wkt" readonly
-                                        value="{{ $gelombang2->batas_waktu_pendaftaran }}">
+                        @if ($gelombang2)
+                            <form class="forms-sample">
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Batas Waktu
+                                        Pendaftaran</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="bts_wkt" readonly
+                                            value="{{ $gelombang2->batas_waktu_pendaftaran }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ujian Lisan</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="u_l" readonly
-                                        value="{{ $gelombang2->ujian_lisan }}">
+                                <div class="form-group row">
+                                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ujian Lisan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="u_l" readonly
+                                            value="{{ $gelombang2->ujian_lisan }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputMobile" class="col-sm-3 col-form-label">Ujian Tulisan</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="u_t" readonly
-                                        value="{{ $gelombang2->ujian_tulisan }}">
+                                <div class="form-group row">
+                                    <label for="exampleInputMobile" class="col-sm-3 col-form-label">Ujian Tulisan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="u_t" readonly
+                                            value="{{ $gelombang2->ujian_tulisan }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Pengumuman Hasil</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="p_h" readonly
-                                        value="{{ $gelombang2->pengumuman_hasil }}">
+                                <div class="form-group row">
+                                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Pengumuman
+                                        Hasil</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="p_h" readonly
+                                            value="{{ $gelombang2->pengumuman_hasil }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Daftar
-                                    Ulang</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="d_u" readonly
-                                        value="{{ $gelombang2->daftar_ulang }}">
+                                <div class="form-group row">
+                                    <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Daftar
+                                        Ulang</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="d_u" readonly
+                                            value="{{ $gelombang2->daftar_ulang }}">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        @else
+                            Pendaftaran Belum Dibuka
+                        @endif
                     </div>
                 </div>
             </div>
