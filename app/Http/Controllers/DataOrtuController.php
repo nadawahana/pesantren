@@ -11,18 +11,37 @@ class DataOrtuController extends Controller
 {
     public function store(DataOrangTuaRequest $request)
     {
-        $validatedData = $request->all();
-        $user2 = Auth::id();
-        $validatedData['user_id'] = $user2;
+        $user = Auth::id();
 
-        DataOrtu::create($validatedData);
+        DataOrtu::updateOrCreate(
+            [
+                'user_id' => $user
+            ],
+            [
+                'nama_ayah' => $request->nama_ayah,
+                'tempat_lahir_ayah' => $request->tempat_lahir_ayah,
+                'tanggal_lahir_ayah' => $request->tanggal_lahir_ayah,
+                'ket_ayah' => $request->ket_ayah,
+                'pekerjaan_ayah' => $request->pekerjaan_ayah,
+                'penghasilan_ayah' => $request->penghasilan_ayah,
+                'nama_ibu' => $request->nama_ibu,
+                'tempat_lahir_ibu' => $request->tempat_lahir_ibu,
+                'tanggal_lahir_ibu' => $request->tanggal_lahir_ibu,
+                'ket_ibu' => $request->ket_ibu,
+                'pekerjaan_ibu' => $request->pekerjaan_ibu,
+                'penghasilan_ibu' => $request->penghasilan_ibu,
+                'alamat' => $request->alamat,
 
-        $message = 'Berhasil upload data persyaratan';
-        return view('userdataortu', compact('message'));
+            ]
+        );
+
+        return redirect()->route('data-ortu')->with('message', 'Data diri berhasil perbarui');
     }
 
     public function get()
     {
-        return view('userdataortu');
+        $user = Auth::id();
+        $dataortu = DataOrtu::where('user_id', $user)->first();
+        return view('userdataortu', compact('dataortu'));
     }
 }
