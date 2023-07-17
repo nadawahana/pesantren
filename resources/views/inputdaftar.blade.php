@@ -1,52 +1,118 @@
 @extends('master')
 @section('content')
-<div>
-    <div class="card-body">
-        <h3 class="card-title">Pendaftaran</h3>
-        <br>
-        @if(session('message'))
-        <div class="alert alert-info mt-4">
-            {{ session('message') }}
-        </div>
-        @endif
-        <div class="template-demo d-flex">
-            <a href="/userdatadaftar" class="btn btn-primary btn-custom btn-full-width" style="width: 280px; height: 50px;">
-                <div class="d-flex align-items-center">
-                    <i class="mdi mdi-account-plus"></i>
-                    <span class="ml-2">Data Diri</span>
+    <div>
+        <div class="card-body">
+            <h3 class="card-title">Pendaftaran</h3>
+            <br>
+            @if (session('message'))
+                <div class="alert alert-info mt-4">
+                    {{ session('message') }}
                 </div>
-            </a>
-            <a href="/data-ortu" class="btn btn-danger btn-custom btn-full-width" style="width: 200px; height: 50px;">
-                <div class="d-flex align-items-center">
-                    <i class="mdi mdi-file-document-box"></i>
-                    <span class="ml-2">Data OrangTua</span>
+            @endif
+            <div class="row">
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow py-2 bg-primary text-light">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                                        Data Diri</div>
+                                    <a href="{{ route('userdatadaftar') }}" class="text-light"><small>Lihat Data
+                                            -></small></a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="mdi mdi-account-plus fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <a href="/persyaratan" class="btn btn-success btn-custom btn-full-width" style="width: 280px; height: 50px;">
-                <div class="d-flex align-items-center">
-                    <i class="mdi mdi-calendar-check"></i>
-                    <span class="ml-2">Persyaratan</span>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow py-2 bg-danger text-light">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                                        Data Orang Tua</div>
+                                    <a href="{{ route('data-ortu') }}" class="text-light"><small>Lihat Data
+                                            -></small></a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="mdi mdi-file-document-box fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <a href="/buktitf" class="btn btn-warning btn-custom btn-full-width" style="width: 280px; height: 50px;">
-                <div class="d-flex align-items-center">
-                    <i class=" mdi mdi-coin"></i>
-                    <span class="ml-2">Status Pembayaran</span>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow py-2 bg-success text-light">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                                        Persyaratan</div>
+                                    <a href="{{ route('persyaratan') }}" class="text-light"><small>Lihat Data
+                                            -></small></a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="mdi mdi-calendar-check fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <a href="/check-payment-proof" class="btn btn-danger btn-custom btn-full-width" style="width: 200px; height: 50px;">
-                <div class="d-flex align-items-center">
-                    <i class="mdi mdi-account-card-details"></i>
-                    <span class="ml-2">Kartu Ujian</span>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow py-2 bg-warning text-light">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                                        Status Pembayaran</div>
+                                    <a href="{{ route('buktitf') }}" class="text-light"><small>Lihat Data
+                                            -></small></a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="mdi mdi-calendar-check fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <a href="/statusKelulusan" class="btn btn-info btn-custom btn-full-width" style="width: 280px; height: 50px;">
-                <div class="d-flex align-items-center">
-                    <i class=" mdi mdi-coin"></i>
-                    <span class="ml-2">Status kelulusan</span>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow py-2 bg-secondary text-light">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                                        Kartu Ujian</div>
+                                    <a href="{{ route('check-payment-proof') }}" class="text-light"><small>Lihat Data
+                                            -></small></a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="mdi mdi-calendar-check fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow py-2 bg-info text-light">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                                        Status kelulusan</div>
+                                    <a href="{{ route('statusKelulusan') }}" class="text-light"><small>Lihat Data
+                                            -></small></a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="mdi mdi-coin fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 @endsection
