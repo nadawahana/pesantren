@@ -72,7 +72,7 @@
                                             -></small></a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="mdi mdi-calendar-check fa-2x"></i>
+                                    <i class="mdi mdi mdi-coin fa-2x"></i>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                             -></small></a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="mdi mdi-calendar-check fa-2x"></i>
+                                    <i class="mdi mdi-account-card-details fa-2x"></i>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                             -></small></a>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="mdi mdi-coin fa-2x"></i>
+                                    <i class="mdi mdi mdi-bookmark-check fa-2x"></i>
                                 </div>
                             </div>
                         </div>
