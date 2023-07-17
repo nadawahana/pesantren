@@ -103,7 +103,7 @@
                                         value="{{ $datasantri->hp_ayah ?? old('hp_ayah') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Fptp Profil</label>
+                                    <label>Foto Profil</label>
                                     <input type="file" name="file_name" class="file-upload-default">
                                     <div class="input-group col-xs-12">
                                         <input type="text" class="form-control file-upload-info" disabled

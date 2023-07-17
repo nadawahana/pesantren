@@ -52,18 +52,16 @@ class DataDiriController extends Controller
         // return response()->json(['data'=>$data],201);
     }
 
-    public function exportToPDF()
+    public function exportToPDF($id)
     {
-        // Get the currently logged-in user
-        $user = Auth::user();
 
         // Get the data for the logged-in user
-        $data = DataSantri::where('user_id', 'admin2')->get();
-
-        // Generate the PDF view
-        $pdf = new Dompdf();
+        $data = DataSantri::where('user_id', $id)->first();
+        $data_ujian =
+            // Generate the PDF view
+            $pdf = new Dompdf();
         $pdf->loadHtml(View::make('pdf.dataSantri', ['data' => $data])->render());
-        $pdf->setPaper('A4', 'landscape');
+        $pdf->setPaper('A4', 'portrait');
         $pdf->render();
 
         // Output the generated PDF to the browser
@@ -73,11 +71,11 @@ class DataDiriController extends Controller
     public function checkPaymentProof()
     {
         $user = Auth::id();
-        $paymentProof = BuktiTF::where('user_id', $user)->first();
+        $paymentProof = BuktiTF::where('user_id', $user)->where('status', 1)->first();
         if ($paymentProof) {
-            // User has submitted the payment proof
-            $data = DataSantri::all();
-            return redirect()->route('export-pdf', compact('data'));
+            // // User has submitted the payment proof
+            // $data = DataSantri::where('user_id', $user)->first();
+            return redirect()->route('export-pdf', ['id' => $user]);
         } else {
             // User has not submitted the payment proof
             return redirect()->back()->with('message', 'Untuk Mencetak Kartu Ujian Anda Harus Membayar Terlebih Dahulu!.');
