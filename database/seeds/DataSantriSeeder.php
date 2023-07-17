@@ -1,10 +1,11 @@
 <?php
 
+use App\User;
 use App\DataSantri;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DataSantriSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class DataSantriSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             $filename = $faker->uuid . '.jpg';
             $fileContents = 'Gambar1'; // Replace with your desired file contents
 
@@ -38,7 +39,7 @@ class DataSantriSeeder extends Seeder
                 'jalur_masuk' => $faker->randomElement(['asrama', 'non-asrama']),
                 'hp_ayah' => $faker->phoneNumber,
                 'file_name' => $filename,
-                'user_id' => 'admin',
+                'user_id' => User::all()->random()->id,
             ]);
         }
     }

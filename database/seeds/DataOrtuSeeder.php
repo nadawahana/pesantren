@@ -1,9 +1,10 @@
 <?php
 
+use App\User;
 use App\DataOrtu;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Auth;
-use Faker\Factory as Faker;
 
 class DataOrtuSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class DataOrtuSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             $validatedData = [
                 'nama_ayah' => $faker->name,
                 'tempat_lahir_ayah' => $faker->city,
@@ -31,10 +32,8 @@ class DataOrtuSeeder extends Seeder
                 'pekerjaan_ibu' => $faker->jobTitle,
                 'penghasilan_ibu' => $faker->randomElement(['1jt-3jt', '3jt-5jt', '5jt-10jt', '10jt+']),
                 'alamat' => $faker->address,
+                'user_id' => User::all()->random()->id,
             ];
-
-            $user2 = Auth::user();
-            $validatedData['user_id'] = 'admin';
 
             DataOrtu::create($validatedData);
         }

@@ -13,13 +13,22 @@ class UsersSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name'=>'admin',
-            'email'=>'admin@admin.com',
-            'password'=>bcrypt('admin'),
-            'alamat'=>'adadeh',
-            'no_hp'=>'no_hp',
-            'username'=>'admin',
-            'level'=>'admin'
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('password'),
+            'alamat' => 'adadeh',
+            'no_hp' => 'no_hp',
+            'username' => 'admin',
+            'level' => 'admin'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'santri',
+            'email' => 'santri@santri.com',
+            'password' => bcrypt('password'),
+            'alamat' => 'adadeh',
+            'no_hp' => 'no_hp',
+            'username' => 'santri',
+            'level' => 'calon-santri'
         ]);
     }
 }
