@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DataSantri;
+use App\Gelombang1;
+use App\GelombangDua;
 use App\NilaiTotal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,10 +46,17 @@ class user extends Controller
         return view('userhome');
     }
 
-    public function gelombang1()
+    public function informasiPendaftaran()
     {
         // dd(Auth::check());
-        return view('gelombang1');
+        $gelombang1 = Gelombang1::first();
+        $gelombang2 = GelombangDua::first();
+        return view('informasi-pendaftran', compact('gelombang1', 'gelombang2'));
+    }
+    public function gelombang1()
+    {
+        $gelombang1 = Gelombang1::first();
+        return view('gelombang1', compact('gelombang1'));
     }
 
     public function gelombang2()

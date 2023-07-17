@@ -63,6 +63,7 @@ Route::middleware(['auth', 'CekLevel:admin'])->group(function () {
 
 Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::get('/userhome', 'user@userhome');
+    Route::get('/informasi-pendaftaran', 'user@informasiPendaftaran');
     Route::get('/gelombang1', 'user@gelombang1');
     Route::get('/gelombang2', 'user@gelombang2');
     Route::get('/hubungi', 'user@hubungi');
@@ -82,8 +83,8 @@ Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::get('/statusKelulusan', 'DataDiriController@statusKelulusan')->name('statusKelulusan');
     Route::post('/post-data-ortu', 'DataOrtuController@store')->name('post-ortu');
     Route::post('/data-diri', 'DataDiriController@uploadDataDiri')->name('data-diri');
-    Route::get('export-pdf', 'DataDiriController@exportToPDF')->name('export-pdf');
-    Route::get('/check-payment-proof', 'YourController@checkPaymentProof')->name('check-payment-proof');
+    Route::get('export-pdf/{id}', 'DataDiriController@exportToPDF')->name('export-pdf');
+    // Route::get('/check-payment-proof', 'YourController@checkPaymentProof')->name('check-payment-proof');
     Route::get('/check-payment-proof', 'DataDiriController@checkPaymentProof')->name('check-payment-proof');
 });
 
