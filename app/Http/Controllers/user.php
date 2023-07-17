@@ -22,8 +22,8 @@ class user extends Controller
     public function regis()
     {
         return view('regis');
-
-    }public function inputdaftar()
+    }
+    public function inputdaftar()
     {
         // dd(Auth::check());
         return view('inputdaftar');
@@ -55,10 +55,12 @@ class user extends Controller
         // dd(Auth::check());
         return view('gelombang2');
     }
-    
+
     public function userdatadaftar()
     {
-        return view('userdatadaftar');
+        $user = Auth::id();
+        $datasantri = DataSantri::where('user_id', $user)->first();
+        return view('userdatadaftar', compact('datasantri'));
     }
     public function persyaratan()
     {
@@ -112,7 +114,7 @@ class user extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
 
     public function get()
     {

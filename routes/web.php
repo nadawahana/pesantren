@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/login', 'admin@index');
 Route::get('/regis', 'admin@regis2');
 
-Route::get('/inputdaftar', 'user@inputdaftar');
+Route::get('/inputdaftar', 'user@inputdaftar')->name('inputdaftar');
 // Route::get('/master','admin@master');
 // Route::get('/daftar','admin@daftar')->middleware(['auth']); //test middleware
 // Route::get('/admindaftar','admin@admindaftar');
