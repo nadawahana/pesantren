@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','alamat','no_hp','username','level'
+        'name', 'email', 'password', 'alamat', 'no_hp', 'username', 'level'
     ];
 
     /**
@@ -37,5 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $table='users';
+    protected $table = 'users';
+
+
+    public function datasantri()
+    {
+        return $this->hasOne(DataSantri::class, 'user_id', 'id');
+    }
 }

@@ -36,7 +36,7 @@ class DataSantriSeeder extends Seeder
                 'tanggal_lahir' => $faker->date(),
                 'jenkel' => $faker->randomElement(['laki-laki', 'perempuan']),
                 'asal_sekolah' => $faker->company,
-                'jalur_masuk' => $faker->randomElement(['asrama', 'non-asrama']),
+                'jalur_masuk' => $faker->randomElement(['Asrama', 'Non_Asrama']),
                 'hp_ayah' => $faker->phoneNumber,
                 'file_name' => $filename,
                 'user_id' => User::all()->random()->id,

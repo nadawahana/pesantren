@@ -116,7 +116,7 @@ class admin extends Controller
     }
     public function tampilOrtu()
     {
-        $data = DataOrtu::all();
+        $data = DataOrtu::with('santri.datasantri')->get();
         return view('tampilOrtu', compact('data'));
     }
     public function datanilai()
