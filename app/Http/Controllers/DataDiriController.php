@@ -57,15 +57,14 @@ class DataDiriController extends Controller
 
         // Get the data for the logged-in user
         $data = DataSantri::where('user_id', $id)->first();
-        $data_ujian =
-            // Generate the PDF view
-            $pdf = new Dompdf();
+        // Generate the PDF view
+        $pdf = new Dompdf();
         $pdf->loadHtml(View::make('pdf.dataSantri', ['data' => $data])->render());
-        $pdf->setPaper('A4', 'portrait');
+        // $pdf->setPaper('A4', 'portrait');
+        $pdf->setPaper(array(0, 0, 380, 500), 'potrait');
         $pdf->render();
-
-        // Output the generated PDF to the browser
-        $pdf->stream('nomor_ujian.pdf');
+        // // Output the generated PDF to the browser
+        return $pdf->stream('Nomor Ujian ' . $data->nama_lengkap . '.pdf');
     }
 
     public function checkPaymentProof()
@@ -78,7 +77,7 @@ class DataDiriController extends Controller
             return redirect()->route('export-pdf', ['id' => $user]);
         } else {
             // User has not submitted the payment proof
-            return redirect()->back()->with('message', 'Untuk Mencetak Kartu Ujian Anda Harus Membayar Terlebih Dahulu!.');
+            return redirect()->back()->with('message', 'Untuk anda belum dapat mencetak kartu ujian!. Lakukan Pembayaran, jika sudah harap menunggu');
         }
     }
 

@@ -129,16 +129,15 @@ class admin extends Controller
 
     public function datapembayaran()
     {
-        $dataNilaiTotal = BuktiTF::all();
-        return view('datapembayaran', compact('dataNilaiTotal'));
+        $dataTransfer = BuktiTF::all();
+        return view('datapembayaran', compact('dataTransfer'));
     }
 
     public function update(Request $request, $id)
     {
-        $nilaiTotal = BuktiTF::findOrFail($id);
-        $nilaiTotal->user_id = $request->input('nama_santri');
-        $nilaiTotal->status = $request->input('baca_alquran_input');
-        $nilaiTotal->save();
+        $buktiTf = BuktiTF::findOrFail($id);
+        $buktiTf->status = $request->input('status');
+        $buktiTf->save();
 
         return redirect()->route('datapembayaran')->with('message', 'Anda Berhasil Melakukan Update Data Bukti Pembayaran');
     }

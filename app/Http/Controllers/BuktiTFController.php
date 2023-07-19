@@ -10,19 +10,25 @@ use Illuminate\Support\Facades\Storage;
 
 class BuktiTFController extends Controller
 {
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
-            'bukti_tf'=>'required',
-            
+            'bukti_tf' => 'required',
+
         ]);
         $filename = $request->bukti_tf->store('public/Pembayaran');
         $fileUrl = Storage::url($filename);
         $user = auth()->user();
 
-        BuktiTF::create([
-            'user_id'=>$user->id,
-            'bukti_tf'=>basename($fileUrl)
-        ]);
+        BuktiTF::updateOrCreate(
+            [
+                'user_id' => $user->id
+            ],
+            [
+                'bukti_tf' => basename($fileUrl),
+                'status' => 0
+            ]
+        );
         return redirect()->intended('buktitf')->with('message', 'Anda Sudah Berhasil Melakukan Pembayaran');
     }
 }

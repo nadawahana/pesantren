@@ -44,4 +44,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(DataSantri::class, 'user_id', 'id');
     }
+    public function dataBuktiTransfer()
+    {
+        return $this->hasOne(BuktiTF::class, 'user_id', 'id');
+    }
 }

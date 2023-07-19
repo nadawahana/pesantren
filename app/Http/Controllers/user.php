@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BuktiTF;
 use App\DataSantri;
 use App\Gelombang1;
 use App\GelombangDua;
@@ -81,7 +82,9 @@ class user extends Controller
     }
     public function buktitf()
     {
-        return view('buktitf');
+        $user = Auth::id();
+        $databukti = BuktiTF::where('user_id', $user)->first();
+        return view('buktitf', compact('databukti'));
     }
     public function buktitfulang()
     {
