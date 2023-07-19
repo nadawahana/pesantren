@@ -130,9 +130,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Foto Calon Santri</h4>
-                        @if ($datasantri->file_name)
-                            <img src="{{ asset('storage/files/' . $datasantri->file_name) }}" alt="..."
-                                class="img-thumbnail">
+                        @if (isset($datasantri))
+                            @if ($datasantri->file_name)
+                                <img src="{{ asset('storage/files/' . $datasantri->file_name) }}" alt="..."
+                                    class="img-thumbnail">
+                            @endif
                         @else
                             <img src="{{ asset('images/noimage.jpg') }}" class="img-thumbnail">
                         @endif
