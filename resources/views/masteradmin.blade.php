@@ -266,7 +266,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/data" aria-expanded="false" aria-controls="icons">
+                        <a class="nav-link" href="/data-diri" aria-expanded="false" aria-controls="icons">
                             <i class="icon-layout menu-icon"></i>
                             <span class="menu-title">Data Diri</span>
                         </a>

@@ -15,4 +15,12 @@ class GelombangDua extends Model
         'pengumuman_hasil',
         'daftar_ulang'
     ];
+
+    protected $casts = [
+        'batas_waktu_pendaftaran' => 'date',
+        'ujian_lisan' => 'date',
+        'ujian_tulisan' => 'date',
+        'pengumuman_hasil' => 'date',
+        'daftar_ulang' => 'date',
+    ];
 }

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Gelombang1 extends Model
@@ -14,5 +15,12 @@ class Gelombang1 extends Model
         'ujian_tulisan',
         'pengumuman_hasil',
         'daftar_ulang',
+    ];
+    protected $casts = [
+        'batas_waktu_pendaftaran' => 'date',
+        'ujian_lisan' => 'date',
+        'ujian_tulisan' => 'date',
+        'pengumuman_hasil' => 'date',
+        'daftar_ulang' => 'date',
     ];
 }

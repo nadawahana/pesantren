@@ -50,19 +50,19 @@
                                         @foreach ($data as $d)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $d->santri->datasantri->nama_lengkap }}</td>
-                                                <td>{{ $d->nama_ayah }}</td>
-                                                <td>{{ $d->tempat_lahir_ayah }}</td>
-                                                <td>{{ $d->tanggal_lahir_ayah }}</td>
-                                                <td>{{ $d->ket_ayah }}</td>
-                                                <td>{{ $d->pekerjaan_ayah }}</td>
-                                                <td>{{ $d->penghasilan_ayah }}</td>
-                                                <td>{{ $d->nama_ibu }}</td>
-                                                <td>{{ $d->tempat_lahir_ibu }}</td>
-                                                <td>{{ $d->tanggal_lahir_ibu }}</td>
-                                                <td>{{ $d->ket_ibu }}</td>
-                                                <td>{{ $d->pekerjaan_ibu }}</td>
-                                                <td>{{ $d->penghasilan_ibu }}</td>
+                                                <td>{{ $d->santri->datasantri->nama_lengkap ?? '-' }}</td>
+                                                <td>{{ $d->nama_ayah ?? '-' }}</td>
+                                                <td>{{ $d->tempat_lahir_ayah ?? '-' }}</td>
+                                                <td>{{ $d->tanggal_lahir_ayah ?? '-' }}</td>
+                                                <td>{{ $d->ket_ayah ?? '-' }}</td>
+                                                <td>{{ $d->pekerjaan_ayah ?? '-' }}</td>
+                                                <td>{{ $d->penghasilan_ayah ?? '-' }}</td>
+                                                <td>{{ $d->nama_ibu ?? '-' }}</td>
+                                                <td>{{ $d->tempat_lahir_ibu ?? '-' }}</td>
+                                                <td>{{ $d->tanggal_lahir_ibu ?? '-' }}</td>
+                                                <td>{{ $d->ket_ibu ?? '-' }}</td>
+                                                <td>{{ $d->pekerjaan_ibu ?? '-' }}</td>
+                                                <td>{{ $d->penghasilan_ibu ?? '-' }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

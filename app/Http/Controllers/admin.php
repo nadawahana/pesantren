@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\BuktiTF;
 use App\DataOrtu;
 use App\DataSantri;
+use App\Gelombang1;
+use App\GelombangDua;
 use App\Persyaratan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -93,8 +95,9 @@ class admin extends Controller
     }
     public function daftar()
     {
-        //  dd(auth()->check());
-        return view('pendaftaran');
+        $gelombang1 = Gelombang1::latest()->first();
+        $gelombang2 = GelombangDua::latest()->first();
+        return view('pendaftaran', compact('gelombang1', 'gelombang2'));
     }
     public function logout(Request $request)
     {

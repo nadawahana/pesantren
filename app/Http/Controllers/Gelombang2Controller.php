@@ -32,9 +32,13 @@ class Gelombang2Controller extends Controller
 
         return redirect()->intended('daftar')->with('message', 'Anda Berhasil Input Data Ujian Gelombang 1');
     }
+
+
+
     public function getLastRecord()
     {
-        $lastRecord = DB::table('gelombang1')->latest()->first();
+        $lastRecord = DB::table('gelombang1')
+            ->latest()->first();
 
         if ($lastRecord) {
             $dateColumns = ['batas_waktu_pendaftaran', 'ujian_lisan', 'ujian_tulisan', 'pengumuman_hasil', 'daftar_ulang'];
@@ -46,7 +50,7 @@ class Gelombang2Controller extends Controller
                 }
             }
         }
-        
+
 
         return response()->json(['data' => $lastRecord], 201);
     }

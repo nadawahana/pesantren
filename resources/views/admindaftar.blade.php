@@ -35,11 +35,11 @@
                                             <th>Nama Santri</th>
                                             <th>NISN</th>
                                             <th>Asal Sekolah</th>
-                                            <th>tempat lahir</th>
-                                            <th>tanggal lahir</th>
+                                            <th>Tempat Lahir</th>
+                                            <th>Tanggal Lahir</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>jalur masuk</th>
-                                            <th>no handphone ayah</th>
+                                            <th>Jalur Masuk</th>
+                                            <th>No Handphone Ayah</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -54,8 +54,8 @@
                                                 <td>{{ $row->asal_sekolah }}</td>
                                                 <td>{{ $row->tempat_lahir }}</td>
                                                 <td>{{ $row->tanggal_lahir }}</td>
-                                                <td>{{ $row->jenkel }}</td>
-                                                <td>{{ $row->jalur_masuk }}</td>
+                                                <td>{{ $row->jenkel == 'laki-laki' ? 'Laki-laki' : 'Perempuan' }}</td>
+                                                <td>{{ $row->jalur_masuk == 'asrama' ? 'Asrama' : 'Non Asrama' }}</td>
                                                 <td>{{ $row->hp_ayah }}</td>
                                             </tr>
                                         @endforeach
