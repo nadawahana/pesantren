@@ -38,20 +38,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data as $index => $row)
-                                            <tr>
-                                                <td>{{ $index + 1 }}</td>
-                                                <td><img class="img-sm rounded-circle"
+                                        {{-- @php
+                                            dd(isset($data));
+                                        @endphp --}}
+                                        @if (!isset($data))
+                                            @foreach ($data as $index => $row)
+                                                <tr>
+                                                    <td>{{ $index + 1 }}</td>
+                                                    <td>
+                                                        {{-- <img class="img-sm rounded-circle"
                                                         src="{{ asset('storage/files/' . $row->datasantri->file_name) }}"
-                                                        alt="profile"></td>
-                                                <td>{{ $row->datasantri->nama_lengkap }}</td>
-                                                <td>{{ $row->datasantri->nisn }}</td>
-                                                <td>
-                                                    <a
-                                                        href="{{ route('tampilan-persyaratan-detail', $row->id) }}">Detail</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                                        alt="profile"> --}}
+                                                        @if (isset($row->datasantri))
+                                                            @if ($datasantri->file_name)
+                                                                <img src="{{ asset('storage/files/' . $row->datasantri->file_name) }}"
+                                                                    alt="..." class="rounded-circle">
+                                                            @endif
+                                                        @else
+                                                            <img src="{{ asset('images/noimage.jpg') }}"
+                                                                class="img-thumbnail">
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $row->datasantri->nama_lengkap }}</td>
+                                                    <td>{{ $row->datasantri->nisn }}</td>
+                                                    <td>
+                                                        <a
+                                                            href="{{ route('tampilan-persyaratan-detail', $row->id) }}">Detail</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
