@@ -43,6 +43,7 @@ Route::get('/logout', 'admin@logout')->name('logout');
 Route::middleware(['auth', 'CekLevel:admin'])->group(function () {
     Route::get('/daftar', 'admin@daftar');
     Route::get('/tampilPersyaratan', 'admin@tampilPersyaratan');
+    Route::get('/tampilPersyaratan/detail/{id}', 'admin@tampilPersyaratanDetail')->name('tampilan-persyaratan-detail');
     Route::get('/tampilOrtu', 'admin@tampilOrtu');
     Route::get('/statusPembayaran', 'user@statusPembayaran');
     Route::get('/kartuUjian', 'user@kartuUjian');
@@ -59,6 +60,7 @@ Route::middleware(['auth', 'CekLevel:admin'])->group(function () {
     Route::post('/nilai-total', 'user@store')->name('nilai-total.store');
     Route::put('/nilai-total/{id}', 'user@update')->name('nilai-total.update');
     Route::delete('/nilai-total/{id}', 'user@destroy')->name('nilai-total.destroy');
+    Route::get('/grafik', 'AdminController@grafik');
 });
 
 Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
@@ -67,7 +69,7 @@ Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::get('/gelombang1', 'user@gelombang1');
     Route::get('/gelombang2', 'user@gelombang2');
     Route::get('/hubungi', 'user@hubungi');
-    Route::get('/grafik', 'AdminController@grafik');
+
     Route::get('/userdatadaftar', 'user@userdatadaftar')->name('userdatadaftar');
     Route::get('/persyaratan', 'user@persyaratan')->name('persyaratan'); //udah
     Route::post('/persyaratan', 'PersyaratanController@store')->name('post-persyaratan');

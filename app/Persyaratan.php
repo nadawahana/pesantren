@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -46,4 +47,9 @@ class Persyaratan extends Model
         '1kls6_penjas',
         '1kls6_rata2',
     ];
+
+    public function santri()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
