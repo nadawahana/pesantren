@@ -36,7 +36,7 @@
         <header class="header_section">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('landingPage') }}">
                         <img src="images/icon_logo.png" width="250px" alt=""
                             style="background-color: white; border-radius: 2px; margin-left: 50px;">
                     </a>
@@ -96,7 +96,6 @@
                                             <a href="{{ route('login') }}" class="btn-1">
                                                 Daftar
                                             </a>
-
                                         </div>
                                     </div>
                                 </div>
