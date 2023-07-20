@@ -8,6 +8,12 @@ class NilaiTotal extends Model
 {
     protected $table = 'data_nilai';
 
-    protected $fillable = ['nama_santri', 'baca_alquran_input', 'sholat_input', 'tahfidz_input', 'ujian_tulisan_input','status'];
+    protected $fillable = ['user_id', 'baca_alquran', 'sholat', 'tahfidz', 'ujian_tulisan', 'status'];
 
+    protected $with = ['santri'];
+
+    public function santri()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

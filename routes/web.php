@@ -87,7 +87,7 @@ Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::post('/data-diri', 'DataDiriController@uploadDataDiri')->name('data-diri');
     Route::get('export-pdf/{id}', 'DataDiriController@exportToPDF')->name('export-pdf');
     // Route::get('/check-payment-proof', 'YourController@checkPaymentProof')->name('check-payment-proof');
-    Route::get('/check-payment-proof', 'DataDiriController@checkPaymentProof')->name('check-payment-proof');
+    Route::get('/check-payment-proof', 'DataDiriController@checkPaymentProof')->name('k');
 });
 
 Route::get('/', function () {
@@ -119,4 +119,4 @@ Route::get('/', function () {
     //         }
     //     }
     return view('landingPage', compact('lastRecord'));
-});
+})->name('landingPage');

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\BuktiTF;
+use App\DataOrtu;
 use App\DataSantri;
 use App\Gelombang1;
-use App\GelombangDua;
 use App\NilaiTotal;
 use App\Persyaratan;
+use App\GelombangDua;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\DataNilaiSantriStoreRequest;
+use App\Http\Requests\DataNilaiSantriUpdateRequest;
 
 class user extends Controller
 {
@@ -135,32 +138,34 @@ class user extends Controller
 
     public function get()
     {
-        $dataNilaiTotal = NilaiTotal::all();
-        return view('datanilai', compact('dataNilaiTotal'));
+        $dataNilaiTotal = NilaiTotal::query();
+        $data = $dataNilaiTotal->without('santri')->select('user_id')->get()->toArray();
+        $datasantri = DataSantri::with('user')->whereNotIn('user_id', $data)->get()->pluck('nama_lengkap', 'user_id');
+        $dataNilaiTotal = NilaiTotal::with('santri.datasantri')->get();
+        return view('datanilai', compact('dataNilaiTotal', 'datasantri', 'data'));
     }
 
-    public function store(Request $request)
+    public function store(DataNilaiSantriStoreRequest $request)
     {
         $nilaiTotal = new NilaiTotal();
-        $nilaiTotal->nama_santri = $request->input('nama_santri');
-        $nilaiTotal->baca_alquran_input = $request->input('baca_alquran_input');
-        $nilaiTotal->sholat_input = $request->input('sholat_input');
-        $nilaiTotal->tahfidz_input = $request->input('tahfidz_input');
-        $nilaiTotal->ujian_tulisan_input = $request->input('ujian_tulisan_input');
+        $nilaiTotal->user_id = $request->input('nama_santri');
+        $nilaiTotal->baca_alquran = $request->input('baca_alquran');
+        $nilaiTotal->sholat = $request->input('sholat');
+        $nilaiTotal->tahfidz = $request->input('tahfidz');
+        $nilaiTotal->ujian_tulisan = $request->input('ujian_tulisan');
         $nilaiTotal->save();
 
         return redirect()->route('nilai-total.index')->with('message', 'Anda Berhasil Input Nilai Total');
     }
 
-    public function update(Request $request, $id)
+    public function update(DataNilaiSantriUpdateRequest $request, $id)
     {
         $nilaiTotal = NilaiTotal::findOrFail($id);
-        $nilaiTotal->nama_santri = $request->input('nama_santri');
-        $nilaiTotal->baca_alquran_input = $request->input('baca_alquran_input');
-        $nilaiTotal->sholat_input = $request->input('sholat_input');
-        $nilaiTotal->tahfidz_input = $request->input('tahfidz_input');
-        $nilaiTotal->ujian_tulisan_input = $request->input('ujian_tulisan_input');
-        $nilaiTotal->status = $request->input('status');
+        $nilaiTotal->user_id = $request->input('nama_santri');
+        $nilaiTotal->baca_alquran = $request->input('baca_alquran');
+        $nilaiTotal->sholat = $request->input('sholat');
+        $nilaiTotal->tahfidz = $request->input('tahfidz');
+        $nilaiTotal->ujian_tulisan = $request->input('ujian_tulisan');
         $nilaiTotal->save();
 
         return redirect()->route('nilai-total.index')->with('message', 'Anda Berhasil Update Data Nilai Total');

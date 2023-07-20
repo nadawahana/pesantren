@@ -52,4 +52,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Persyaratan::class, 'user_id', 'id');
     }
+    public function dataNilai()
+    {
+        return $this->hasOne(NilaiTotal::class, 'user_id', 'id');
+    }
 }

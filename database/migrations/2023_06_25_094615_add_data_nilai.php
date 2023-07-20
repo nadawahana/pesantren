@@ -15,11 +15,12 @@ class AddDataNilai extends Migration
     {
         Schema::create('data_nilai', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->foreignId('user_id')->unique();
             $table->string('baca_alquran');
             $table->string('sholat');
             $table->string('tahfidz');
             $table->string('ujian_tulisan');
+            $table->timestamps();
         });
     }
 

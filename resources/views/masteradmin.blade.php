@@ -325,6 +325,7 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{ asset('assets/skydash/vendors/js/vendor.bundle.base.js') }}"></script>
@@ -333,6 +334,7 @@
     <script src="{{ asset('assets/skydash/vendors/datatables.net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('assets/skydash/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
     <!-- End plugin js for this page-->
+
     <!-- inject:js -->
     <script src="{{ asset('assets/skydash/js/off-canvas.js') }}"></script>
     <script src="{{ asset('assets/skydash/js/hoverable-collapse.js') }}"></script>
