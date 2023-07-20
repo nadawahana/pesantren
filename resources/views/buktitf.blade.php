@@ -46,7 +46,8 @@
                                 <button type="button" class="btn btn-success btn-lg btn-block mb-3 ">Bukti Transfer Telah
                                     Diterima
                                     <u>
-                                        <a href="" class="d-block mt-3 text-light font-weight-light"> Cetak
+                                        <a href="{{ route('check-payment-proof') }}"
+                                            class="d-block mt-3 text-light font-weight-light"> Cetak
                                             Kartu Ujian</a>
                                     </u></button>
                             @elseif($databukti->status == 2)
