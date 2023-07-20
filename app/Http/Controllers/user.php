@@ -7,6 +7,7 @@ use App\DataSantri;
 use App\Gelombang1;
 use App\GelombangDua;
 use App\NilaiTotal;
+use App\Persyaratan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,13 +69,17 @@ class user extends Controller
 
     public function userdatadaftar()
     {
+        $status = $this->status_pembayaran();
         $user = Auth::id();
         $datasantri = DataSantri::where('user_id', $user)->first();
-        return view('userdatadaftar', compact('datasantri'));
+        return view('userdatadaftar', compact('datasantri', 'status'));
     }
     public function persyaratan()
     {
-        return view('persyaratan');
+        $status = $this->status_pembayaran();
+        $user = Auth::id();
+        $datapersyaratan = Persyaratan::where('user_id', $user)->first();
+        return view('persyaratan', compact('datapersyaratan', 'status'));
     }
     public function nomorujian()
     {
@@ -167,5 +172,16 @@ class user extends Controller
         $nilaiTotal->delete();
 
         return redirect()->route('nilai-total.index')->with('message', 'Anda Berhasil Hapus Data Nilai Total');
+    }
+
+    function status_pembayaran()
+    {
+        $user = Auth::id();
+        $status = BuktiTF::where('user_id', $user)->first();
+        if (isset($status)) {
+            if ($status->status == 1) return 1;
+        } else {
+            return 0;
+        }
     }
 }

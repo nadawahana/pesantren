@@ -46,27 +46,32 @@
                                 <div class="form-group">
                                     <label for="exampleInputName1">Nama Lengkap</label>
                                     <input type="text" class="form-control" id="nama_lengkap" placeholder="Nama Lengkap"
-                                        name="nama_lengkap" value="{{ $datasantri->nama_lengkap ?? old('nama_lengkap') }}">
+                                        name="nama_lengkap" value="{{ $datasantri->nama_lengkap ?? old('nama_lengkap') }}"
+                                        @if ($status) disabled @endif>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail3">NISN</label>
                                     <input type="text" class="form-control" id="nisn" placeholder="NISN"
-                                        name="nisn" value="{{ $datasantri->nisn ?? old('nisn') }}">
+                                        name="nisn" value="{{ $datasantri->nisn ?? old('nisn') }}"
+                                        @if ($status) disabled @endif>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword4">Tempat Lahir</label>
                                     <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir"
-                                        name="tempat_lahir" value="{{ $datasantri->tempat_lahir ?? old('tempat_lahir') }}">
+                                        name="tempat_lahir" value="{{ $datasantri->tempat_lahir ?? old('tempat_lahir') }}"
+                                        @if ($status) disabled @endif>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputtanggallahir">Tanggal Lahir</label>
                                     <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
                                         placeholder="mm/dd/yyyy"
-                                        value="{{ $datasantri->tanggal_lahir ?? old('tanggal_lahir') }}">
+                                        value="{{ $datasantri->tanggal_lahir ?? old('tanggal_lahir') }}"
+                                        @if ($status) disabled @endif>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleSelectGender">Jenis Kelamin</label>
-                                    <select class="form-control" id="jenkel" name="jenkel">
+                                    <select class="form-control" id="jenkel" name="jenkel"
+                                        @if ($status) disabled @endif>
                                         <option value="">Pilih Jenis Kelamin</option>
                                         <option value="laki-laki"
                                             @if (isset($datasantri)) {{ $datasantri->jenkel == 'laki-laki' ? 'selected' : '' }} @endif>
@@ -81,11 +86,13 @@
                                 <div class="form-group">
                                     <label for="exampleInputasalsekolah">Asal Sekolah</label>
                                     <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah"
-                                        value="{{ $datasantri->asal_sekolah ?? old('asal_sekolah') }}">
+                                        value="{{ $datasantri->asal_sekolah ?? old('asal_sekolah') }}"
+                                        @if ($status) disabled @endif>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleJalurMasuk">Jalur Masuk</label>
-                                    <select class="form-control" id="jalur_masuk" name="jalur_masuk">
+                                    <select class="form-control" id="jalur_masuk" name="jalur_masuk"
+                                        @if ($status) disabled @endif>
                                         <option value="">Pilih Jalur Masuk</option>
                                         <option value="Asrama"
                                             @if (isset($datasantri)) {{ $datasantri->jalur_masuk == 'Asrama' ? 'selected' : '' }} @endif>
@@ -100,7 +107,8 @@
                                 <div class="form-group">
                                     <label for="exampleInputNoHp">Nomor HP Orang Tua</label>
                                     <input type="text" class="form-control" id="hp_ayah" name="hp_ayah"
-                                        value="{{ $datasantri->hp_ayah ?? old('hp_ayah') }}">
+                                        value="{{ $datasantri->hp_ayah ?? old('hp_ayah') }}"
+                                        @if ($status) disabled @endif>
                                 </div>
                                 <div class="form-group">
                                     <label>Foto Profil</label>
@@ -109,12 +117,13 @@
                                         <input type="text" class="form-control file-upload-info" disabled
                                             placeholder="Upload Image" name="file_name">
                                         <span class="input-group-append">
-                                            <button class="file-upload-browse btn btn-primary"
-                                                type="button">Upload</button>
+                                            <button class="file-upload-browse btn btn-primary" type="button"
+                                                @if ($status) disabled @endif>Upload</button>
                                         </span>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary mr-2">
+                                <button type="submit" class="btn btn-primary mr-2"
+                                    @if ($status) disabled @endif>
                                     @if (isset($datasantri))
                                         Ubah Data
                                     @else

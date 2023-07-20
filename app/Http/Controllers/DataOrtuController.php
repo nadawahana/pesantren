@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\BuktiTF;
 use App\DataOrtu;
-use App\Http\Requests\Santri\DataOrangTuaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Santri\DataOrangTuaRequest;
 
 class DataOrtuController extends Controller
 {
@@ -40,8 +41,20 @@ class DataOrtuController extends Controller
 
     public function get()
     {
+        $status = $this->status_pembayaran();
         $user = Auth::id();
         $dataortu = DataOrtu::where('user_id', $user)->first();
-        return view('userdataortu', compact('dataortu'));
+        return view('userdataortu', compact('dataortu', 'status'));
+    }
+
+    function status_pembayaran()
+    {
+        $user = Auth::id();
+        $status = BuktiTF::where('user_id', $user)->first();
+        if (isset($status)) {
+            if ($status->status == 1) return 1;
+        } else {
+            return 0;
+        }
     }
 }

@@ -41,23 +41,27 @@
                             <div class="form-group">
                                 <label for="exampleInputName1">Nama Ayah Kandung</label>
                                 <input type="text" class="form-control" id="nama_ayah" placeholder="Nama Lengkap"
-                                    name="nama_ayah" value="{{ $dataortu->nama_ayah ?? old('nama_lengkap') }}">
+                                    name="nama_ayah" value="{{ $dataortu->nama_ayah ?? old('nama_lengkap') }}"
+                                    @if ($status) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Tempat Lahir Ayah</label>
                                 <input type="text" class="form-control" id="tempat_lahir_ayah"
                                     placeholder="Tempat Lahir Ayah" name="tempat_lahir_ayah"
-                                    value="{{ $dataortu->tempat_lahir_ayah ?? old('tempat_lahir_ayah') }}">
+                                    value="{{ $dataortu->tempat_lahir_ayah ?? old('tempat_lahir_ayah') }}"
+                                    @if ($status) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputtanggallahir">Tanggal Lahir Ayah</label>
                                 <input type="date" class="form-control" id="tanggal_lahir_ayah" name="tanggal_lahir_ayah"
                                     placeholder="mm/dd/yyyy"
-                                    value="{{ $dataortu->tanggal_lahir_ayah ?? old('tanggal_lahir_ayah') }}">
+                                    value="{{ $dataortu->tanggal_lahir_ayah ?? old('tanggal_lahir_ayah') }}"
+                                    @if ($status) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="exampleSelectGender">Keterangan Ayah</label>
-                                <select class="form-control" id="ket_ayah" name="ket_ayah">
+                                <select class="form-control" id="ket_ayah" name="ket_ayah"
+                                    @if ($status) disabled @endif>
                                     <option value="masih_hidup"
                                         @if (isset($dataortu)) {{ $dataortu->ket_ayah == 'masih_hidup' ? 'selected' : '' }} @endif>
                                         Masih Hidup</option>
@@ -69,11 +73,13 @@
                             <div class="form-group">
                                 <label for="exampleJalurMasuk">Pekerjaan Ayah</label>
                                 <input class="form-control" id="pekerjaan_ayah" name="pekerjaan_ayah"
-                                    value="{{ $dataortu->pekerjaan_ayah ?? old('pekerjaan_ayah') }}"></input>
+                                    value="{{ $dataortu->pekerjaan_ayah ?? old('pekerjaan_ayah') }}"
+                                    @if ($status) disabled @endif></input>
                             </div>
                             <div class="form-group">
                                 <label for="exampleJalurMasuk">Penghasilan Ayah</label>
-                                <select class="form-control" id="penghasilan_ayah" name="penghasilan_ayah">
+                                <select class="form-control" id="penghasilan_ayah" name="penghasilan_ayah"
+                                    @if ($status) disabled @endif>
                                     <option value="<1jt-3jt"
                                         @if (isset($dataortu)) {{ $dataortu->penghasilan_ayah == '<1jt-3jt' ? 'selected' : '' }} @endif>
                                         1jt-3jt</option>
@@ -91,23 +97,27 @@
                             <div class="form-group">
                                 <label for="exampleInputName1">Nama Ibu Kandung</label>
                                 <input type="text" class="form-control" id="nama_ibu" placeholder="Nama Lengkap"
-                                    name="nama_ibu" value="{{ $dataortu->nama_ibu ?? old('nama_ibu') }}">
+                                    name="nama_ibu" value="{{ $dataortu->nama_ibu ?? old('nama_ibu') }}"
+                                    @if ($status) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Tempat Lahir Ibu</label>
                                 <input type="text" class="form-control" id="tempat_lahir_ibu"
                                     placeholder="Tempat Lahir bu" name="tempat_lahir_ibu"
-                                    value="{{ $dataortu->tempat_lahir_ibu ?? old('tempat_lahir_ibu') }}">
+                                    value="{{ $dataortu->tempat_lahir_ibu ?? old('tempat_lahir_ibu') }}"
+                                    @if ($status) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputtanggallahir">Tanggal Lahir Ibu</label>
                                 <input type="date" class="form-control" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu"
                                     placeholder="mm/dd/yyyy"
-                                    value="{{ $dataortu->tanggal_lahir_ibu ?? old('tanggal_lahir_ibu') }}">
+                                    value="{{ $dataortu->tanggal_lahir_ibu ?? old('tanggal_lahir_ibu') }}"
+                                    @if ($status) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="exampleSelectGender">Keterangan Ibu</label>
-                                <select class="form-control" id="ket_ibu" name="ket_ibu">
+                                <select class="form-control" id="ket_ibu" name="ket_ibu"
+                                    @if ($status) disabled @endif>
                                     <option value="masih_hidup"
                                         @if (isset($dataortu)) {{ $dataortu->ket_ibu == 'masih_hidup' ? 'selected' : '' }} @endif>
                                         Masih Hidup</option>
@@ -119,11 +129,13 @@
                             <div class="form-group">
                                 <label for="exampleJalurMasuk">Pekerjaan Ibu</label>
                                 <input class="form-control" id="pekerjaan_ibu" name="pekerjaan_ibu"
-                                    value="{{ $dataortu->pekerjaan_ibu ?? old('pekerjaan_ibu') }}"></input>
+                                    value="{{ $dataortu->pekerjaan_ibu ?? old('pekerjaan_ibu') }}"
+                                    @if ($status) disabled @endif></input>
                             </div>
                             <div class="form-group">
                                 <label for="exampleJalurMasuk">Penghasilan Ibu</label>
-                                <select class="form-control" id="penghasilan_ibu" name="penghasilan_ibu">
+                                <select class="form-control" id="penghasilan_ibu" name="penghasilan_ibu"
+                                    @if ($status) disabled @endif>
                                     <option value="<1jt-3jt"
                                         @if (isset($dataortu)) {{ $dataortu->penghasilan_ibu == '<1jt-3jt' ? 'selected' : '' }} @endif>
                                         1jt-3jt</option>
@@ -141,9 +153,11 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Alamat Jalan</label>
                                 <input type="text" class="form-control" id="alamat" placeholder="ALAMAT"
-                                    name="alamat" value="{{ $dataortu->alamat ?? old('alamat') }}">
+                                    name="alamat" value="{{ $dataortu->alamat ?? old('alamat') }}"
+                                    @if ($status) disabled @endif>
                             </div>
-                            <button type="submit" class="btn btn-primary mr-2">
+                            <button type="submit" class="btn btn-primary mr-2"
+                                @if ($status) disabled @endif>
                                 @if (isset($datasantri))
                                     Ubah Data
                                 @else
