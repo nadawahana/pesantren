@@ -29,7 +29,7 @@ class DataNilaiSantriUpdateRequest extends FormRequest
             'sholat'  => 'sometimes|numeric|min:0|max:100',
             'tahfidz'  => 'sometimes|numeric|min:0|max:100',
             'ujian_tulisan'  => 'sometimes|numeric|min:0|max:100',
-            // 'status'  => 'required|string',
+            'status_kelulusan'  => 'required|numeric',
         ];
     }
 

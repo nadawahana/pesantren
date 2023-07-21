@@ -52,12 +52,10 @@
                                 <label for="exampleInputName1">Nama Santri</label>
                                 <select class="form-control" id="exampleFormControlSelect2" name="nama_santri">
                                     <option>-- Nama Santri --</option>
-                                    @foreach ($datasantri as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @foreach ($datasantri as $row)
+                                        <option value="{{ $row->user_id }}">{{ $row->nama_lengkap }}</option>
                                     @endforeach
                                 </select>
-                                {{-- <input type="text" class="form-control" name="nama_santri" placeholder="Nama Santri"
-                                    required> --}}
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Baca Al-quran</label>
@@ -113,7 +111,18 @@
                                                 <td>{{ $nilaiTotal->sholat }}</td>
                                                 <td>{{ $nilaiTotal->tahfidz }}</td>
                                                 <td>{{ $nilaiTotal->ujian_tulisan }}</td>
-                                                <td>{{ $nilaiTotal->santri->status_kelulusan }}</td>
+                                                <td>
+                                                    @if ($nilaiTotal->santri->status_kelulusan == 1)
+                                                        <button type="button"
+                                                            class="btn btn-success btn-rounded btn-fw">Lulus</button>
+                                                    @elseif ($nilaiTotal->santri->status_kelulusan == 2)
+                                                        <button type="button"
+                                                            class="btn btn-danger btn-rounded btn-fw">Tidak Lulus</button>
+                                                    @elseif ($nilaiTotal->santri->status_kelulusan == 0)
+                                                        <button type="button"
+                                                            class="btn btn-primary btn-rounded btn-fw">Proses</button>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary btn-sm edit-data-btn"
                                                         data-toggle="modal"
@@ -147,7 +156,7 @@
                                                                     <input type="hidden" name="nama_santri"
                                                                         value="{{ $nilaiTotal->user_id }}"
                                                                         class="form-control" readonly>
-                                                                    <input type="text" name="nama_santri"
+                                                                    <input type="text"
                                                                         value="{{ $nilaiTotal->santri->datasantri->nama_lengkap }}"
                                                                         class="form-control" readonly>
                                                                 </div>
@@ -177,9 +186,20 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Status</label>
-                                                                    <input type="text" name="status"
+                                                                    {{-- <input type="text" name="status"
                                                                         value="{{ $nilaiTotal->status }}"
-                                                                        class="form-control">
+                                                                        class="form-control"> --}}
+                                                                    <select class="form-control"
+                                                                        id="exampleFormControlSelect2"
+                                                                        name="status_kelulusan">
+                                                                        <option>-- Proses --</option>
+                                                                        <option value="1"
+                                                                            {{ $nilaiTotal->santri->status_kelulusan == 1 ? 'selected' : '' }}>
+                                                                            Lulus</option>
+                                                                        <option value="2"
+                                                                            {{ $nilaiTotal->santri->status_kelulusan == 2 ? 'selected' : '' }}>
+                                                                            Tidak Lulus</option>
+                                                                    </select>
                                                                 </div>
 
                                                                 <div class="form-group">

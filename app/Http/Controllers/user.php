@@ -9,6 +9,7 @@ use App\Gelombang1;
 use App\NilaiTotal;
 use App\Persyaratan;
 use App\GelombangDua;
+use App\User as UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DataNilaiSantriStoreRequest;
@@ -140,7 +141,7 @@ class user extends Controller
     {
         $dataNilaiTotal = NilaiTotal::query();
         $data = $dataNilaiTotal->without('santri')->select('user_id')->get()->toArray();
-        $datasantri = DataSantri::with('user')->whereNotIn('user_id', $data)->get()->pluck('nama_lengkap', 'user_id');
+        $datasantri = DataSantri::with('user')->whereNotIn('user_id', $data)->get();
         $dataNilaiTotal = NilaiTotal::with('santri.datasantri')->get();
         return view('datanilai', compact('dataNilaiTotal', 'datasantri', 'data'));
     }
@@ -167,6 +168,11 @@ class user extends Controller
         $nilaiTotal->tahfidz = $request->input('tahfidz');
         $nilaiTotal->ujian_tulisan = $request->input('ujian_tulisan');
         $nilaiTotal->save();
+
+        $user = UserModel::find($request->input('nama_santri'));
+        $user->status_kelulusan = $request->input('status_kelulusan');
+        $user->save();
+
 
         return redirect()->route('nilai-total.index')->with('message', 'Anda Berhasil Update Data Nilai Total');
     }

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('no_hp');
             $table->string('username');
             $table->enum('level', ['admin', 'calon-santri']);
+            $table->integer('status_kelulusan')->default();
             $table->rememberToken();
             $table->timestamps();
         });
