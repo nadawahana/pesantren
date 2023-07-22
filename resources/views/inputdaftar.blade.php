@@ -3,9 +3,8 @@
     <div>
         <div class="card-body">
             <h3 class="card-title">Pendaftaran</h3>
-            <br>
             @if (session('message'))
-                <div class="alert alert-info mt-4">
+                <div class="alert alert-info mt-1">
                     {{ session('message') }}
                 </div>
             @endif

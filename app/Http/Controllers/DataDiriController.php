@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\DataSantri;
 use App\Http\Requests\Santri\DataCalonSantriRequest;
 use App\NilaiTotal;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
@@ -83,20 +84,42 @@ class DataDiriController extends Controller
 
     public function statusKelulusan()
     {
-        $user = Auth::user();
-        $paymentProof = NilaiTotal::where('nama_santri', $user->name)->first();
-
-        if ($paymentProof) {
-            // User has submitted the payment proof
-            $status = $paymentProof->status; // Assuming the "status" field is available in the "data nilai total" table
-            if ($status == 'lulus') {
-                return redirect()->route('userstatus'); // Redirect to the route to export PDF for users who passed the exam
-            } else {
-                return redirect()->route('userstatus2'); // Redirect to the route to export PDF for users who passed the exam
-            }
+        $user =  User::with('datasantri')->find(Auth::id());
+        // dd($this->checkData($user));
+        if ($this->checkData($user) == false) {
+            return redirect()->back()->with('message', 'Data Anda Belum Lengkap, Segera Lengkapi Data Anda!');
         } else {
-            // User has not submitted the payment proof
-            return redirect()->back()->with('message', 'Data Anda Tidak Ada Coba Untuk Hubungi Admin Dahulu!.');
+            $paymentProof = NilaiTotal::with('santri')->where('user_id', $user->id)->first();
+            if ($paymentProof) {
+                // User has submitted the payment proof
+                $status = $user->status_kelulusan; // Assuming the "status" field is available in the "data nilai total" table
+                if ($status == 0) {
+                    return redirect()->back()->with('message', 'Kelulusan anda dalam tahapan proses, mohon untuk menunggu');
+                } elseif ($status == 1) {
+                    //LULUS 
+                    return redirect()->route('userstatus');
+                } elseif ($status == 2) {
+                    //TIDAK LULUS 
+                    return redirect()->route('userstatus2'); // Redirect to the route to export PDF for users who passed the exam
+                }
+            } else {
+                // User has not submitted the payment proof
+                return redirect()->back()->with('message', 'Data Anda Tidak Ada Coba Untuk Hubungi Admin Dahulu!.');
+            }
+        }
+    }
+
+    public function checkData(User $user)
+    {
+        $datasantri = $user->datasantri()->exists();
+        $dataBuktiTransfer = $user->dataBuktiTransfer()->exists();
+        $dataPersyaratan = $user->dataPersyaratan()->exists();
+        $dataNilai = $user->dataNilai()->exists();
+        // dd($datasantri, $dataBuktiTransfer, $dataPersyaratan, $dataNilai);
+        if ($datasantri && $dataBuktiTransfer && $dataPersyaratan && $dataNilai) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
