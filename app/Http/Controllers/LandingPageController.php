@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DataSantri;
 use Carbon\Carbon;
 use App\Gelombang1;
 use App\GelombangDua;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LandingPageController extends Controller
 {
@@ -17,9 +20,14 @@ class LandingPageController extends Controller
      */
     public function __invoke(Request $request)
     {
+
+        // return $this->test();
         $gelombang1 = $this->gelombang1();
         $gelombang2 = $this->gelombang2();
-        return view('landingPage', compact('gelombang1', 'gelombang2'));
+        $test = trim(str_replace(['\\'], '', json_encode($this->test()->getContent())), '"');
+        $asalsekolah = trim(str_replace(['\\'], '', json_encode($this->asalSekolah()->getContent())), '"');
+        $gender = trim(str_replace(['\\'], '', json_encode($this->gender()->getContent())), '"');
+        return view('landingPage', compact('gelombang1', 'gelombang2', 'test', 'asalsekolah', 'gender'));
     }
 
     function gelombang1()
@@ -60,5 +68,31 @@ class LandingPageController extends Controller
             $gelombang2->toArray();
             return $gelombang2;
         }
+    }
+
+    function test()
+    {
+        $asal_sekolah = DataSantri::without('user')->select('jalur_masuk', DB::raw('count(*) as total'))
+            ->whereYear('created_at', now()->format('Y'))
+            ->groupby('jalur_masuk')
+            ->get();
+        return response()->json($asal_sekolah);
+    }
+
+    function asalSekolah()
+    {
+        $asal_sekolah = DataSantri::without('user')->select('asal_sekolah', DB::raw('count(*) as total'))
+            ->whereYear('created_at', now()->format('Y'))
+            ->groupby('asal_sekolah')
+            ->get();
+        return response()->json($asal_sekolah);
+    }
+    function gender()
+    {
+        $asal_sekolah = DataSantri::without('user')->select('jenkel', DB::raw('count(*) as total'))
+            ->whereYear('created_at', now()->format('Y'))
+            ->groupby('jenkel')
+            ->get();
+        return response()->json($asal_sekolah);
     }
 }
