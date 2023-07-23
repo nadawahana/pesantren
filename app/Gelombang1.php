@@ -16,7 +16,7 @@ class Gelombang1 extends Model
         'pengumuman_hasil',
         'daftar_ulang',
     ];
-    protected $casts = [
+    protected $cast = [
         'batas_waktu_pendaftaran' => 'date',
         'ujian_lisan' => 'date',
         'ujian_tulisan' => 'date',

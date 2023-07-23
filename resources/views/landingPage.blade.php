@@ -238,35 +238,93 @@
                 </p>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="detail_container">
-                        <div class="box b-1">
+                <div class="col-md-6 ">
+                    <div class="detail_container ">
+                        <div class="box rounded">
                             <div class="top-box">
                                 <div class="icon-box">
                                     <img src="images/work-i1.png" alt="">
                                 </div>
-                                <h5>
+                                <h4 class="font-weight-bold">
                                     Gelombang 1
-                                </h5>
+                                </h4>
+                            </div>
+                            <div class="bottom-box ">
+                                @if ($gelombang1)
+                                    <p class="font-weight-bold">
+                                        Penerimaan Peserta Didik Baru (PPDB) Tahun {{ now()->format('Y') }}.</p>
+                                    <p class="font-weight-bold">Pendaftaran Gelombang Pertama </p>
+                                    <p> &emsp; -{{ $gelombang1['batas_waktu_pendaftaran'] }}
+                                        -
+                                        {{ $gelombang1['pengumuman_hasil'] }}</p>
+                                    <p class="font-weight-bold">Ujian Tulisan </p>
+                                    <p> &emsp; - {{ $gelombang1['ujian_tulisan'] }}</p>
+                                    <p class="font-weight-bold">Ujian Lisan </p>
+                                    <p> &emsp; - {{ $gelombang1['ujian_lisan'] }}</p>
+                                    <p class="font-weight-bold">Pengumuman Hasil </p>
+                                    <p> &emsp; - {{ $gelombang1['pengumuman_hasil'] }}</p>
+                                    <center>
+                                        <div class="btn-box d-block">
+                                            <a href="#">
+                                                <center class="font-weight-bold">Pendaftaran Ulang</center>
+                                                {{ $gelombang1['daftar_ulang'] . ' - ' . $gelombang1['batas_daftar_ulang'] }}
+                                            </a>
+                                        </div>
+                                    </center>
+                                @else
+                                    <p class="font-weight-bold mt-3 text-center">Pendaftaran Gelombang 1 Belum Dibuka
+                                    </p>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="detail_container  h-100 ">
+                        <div class="box rounded">
+                            <div class="top-box">
+                                <div class="icon-box">
+                                    <img src="images/work-i1.png" alt="">
+                                </div>
+                                <h4 class="font-weight-bold">
+                                    Gelombang 2
+                                </h4>
                             </div>
                             <div class="bottom-box">
-                                <p>
-                                    Penerimaan Peserta Didik Baru (PPDB) tahun pelajaran 2023/2024. Pendaftaran
-                                    Gelombang Pertama dibuka dari {{ $lastRecord->batas_waktu_pendaftaran }} hingga
-                                    {{ $lastRecord->pengumuman_hasil }}
-                                </p>
+                                @if ($gelombang2)
+                                    <p class="font-weight-bold">
+                                        Penerimaan Peserta Didik Baru (PPDB) Tahun {{ now()->format('Y') }}.</p>
+                                    <p class="font-weight-bold">Pendaftaran Gelombang Pertama </p>
+                                    <p> &emsp; -{{ $gelombang2['batas_waktu_pendaftaran'] }}
+                                        -
+                                        {{ $gelombang2['pengumuman_hasil'] }}</p>
+                                    <p class="font-weight-bold">Ujian Tulisan </p>
+                                    <p> &emsp; - {{ $gelombang2['ujian_tulisan'] }}</p>
+                                    <p class="font-weight-bold">Ujian Lisan </p>
+                                    <p> &emsp; - {{ $gelombang2['ujian_lisan'] }}</p>
+                                    <p class="font-weight-bold">Pengumuman Hasil </p>
+                                    <p> &emsp; - {{ $gelombang2['pengumuman_hasil'] }}</p>
+                                    <center>
+                                        <div class="btn-box d-block">
+                                            <a href="#">
+                                                <center class="font-weight-bold">Pendaftaran Ulang</center>
+                                                {{ $gelombang2['daftar_ulang'] . ' - ' . $gelombang2['batas_daftar_ulang'] }}
+                                            </a>
+                                        </div>
+                                    </center>
+                                @else
+                                    <p class="font-weight-bold mt-3 text-center">Pendaftaran Gelombang 2 Belum Dibuka
+                                    </p>
+                                @endif
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="btn-box">
-                <a href="" class="btn-2">
-                    Pendaftaran Ulang 25 Mei s/d 30 Mei 2023
-                </a>
 
-            </div>
         </div>
     </section>
     <!-- end work section -->

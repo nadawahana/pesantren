@@ -1,6 +1,7 @@
 <?php
 
 use App\Gelombang1;
+use App\Http\Controllers\LandingPageController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -90,33 +91,4 @@ Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::get('/check-payment-proof', 'DataDiriController@checkPaymentProof')->name('check-payment-proof');
 });
 
-Route::get('/', function () {
-
-    $lastRecord = DB::table('gelombang1')->latest()->first();
-
-    if ($lastRecord) {
-        $dateColumns = ['batas_waktu_pendaftaran', 'ujian_lisan', 'ujian_tulisan', 'pengumuman_hasil', 'daftar_ulang'];
-
-        foreach ($dateColumns as $column) {
-            if (isset($lastRecord->$column)) {
-                $carbonDate = Carbon::createFromFormat('Y-m-d', $lastRecord->$column);
-                $lastRecord->$column = $carbonDate->format('F j, Y');
-            }
-        }
-    }
-
-
-    // $lastRecord2 = DB::table('gelombang2')->latest()->first();
-
-    //     if ($lastRecord) {
-    //         $dateColumns = ['batas_waktu_pendaftaran', 'ujian_lisan', 'ujian_tulisan', 'pengumuman_hasil', 'daftar_ulang'];
-
-    //         foreach ($dateColumns as $column) {
-    //             if (isset($lastRecord->$column)) {
-    //                 $carbonDate = Carbon::createFromFormat('Y-m-d', $lastRecord->$column);
-    //                 $lastRecord->$column = $carbonDate->format('F j, Y');
-    //             }
-    //         }
-    //     }
-    return view('landingPage', compact('lastRecord'));
-})->name('landingPage');
+Route::get('/', 'LandingPageController')->name('landingPage');
