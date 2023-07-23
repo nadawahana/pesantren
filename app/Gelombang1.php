@@ -16,11 +16,18 @@ class Gelombang1 extends Model
         'pengumuman_hasil',
         'daftar_ulang',
     ];
-    protected $cast = [
+    protected $casts = [
         'batas_waktu_pendaftaran' => 'date',
         'ujian_lisan' => 'date',
         'ujian_tulisan' => 'date',
         'pengumuman_hasil' => 'date',
         'daftar_ulang' => 'date',
     ];
+    // protected $dates = [
+    //     'batas_waktu_pendaftaran',
+    //     'ujian_lisan',
+    //     'ujian_tulisan',
+    //     'pengumuman_hasil',
+    //     'daftar_ulang',
+    // ];
 }

@@ -159,9 +159,9 @@
                             <button type="submit" class="btn btn-primary mr-2"
                                 @if ($status) disabled @endif>
                                 @if (isset($datasantri))
-                                    Ubah Data
-                                @else
                                     Tambah Data
+                                @else
+                                    Ubah Data
                                 @endif
                             </button>
 

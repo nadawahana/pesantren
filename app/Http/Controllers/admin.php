@@ -114,15 +114,18 @@ class admin extends Controller
     }
     public function tampilPersyaratan()
     {
-        $data = User::with(['datasantri'])->where('level', 'calon-santri')->get();
+        $data = Persyaratan::with(['santri'])
+            ->whereHas('santri', function ($query) {
+                return $query->where('level', 'calon-santri');
+            })->get();
         return view('tampilPersyaratan', compact('data'));
     }
     public function tampilPersyaratanDetail($id)
     {
-        $data = User::with(['datasantri', 'dataPersyaratan'])->where('level', 'calon-santri')->where('id', $id)->first();
-        $dataDokumen = $data->dataPersyaratan->select('KK as Kartu Keluarga', 'ijazah as Ijazah', 'akta_kelahiran as Akta Kelahiran', 'KIP as Kartu Indonesia Pintar', 'tingkat as Tingkat Penghargaan', 'penghargaan as Penghargaan')->first()->toArray();
-        $dataNilai = $data->dataPersyaratan;
-        return view('detailPersyaratan', compact('data', 'dataDokumen', 'dataNilai'));
+        $data = Persyaratan::with('santri.datasantri')->where('id', $id)->first();
+        $dataDokumen = $data->select('KK as Kartu Keluarga', 'ijazah as Ijazah', 'akta_kelahiran as Akta Kelahiran', 'KIP as Kartu Indonesia Pintar', 'tingkat as Tingkat Penghargaan', 'penghargaan as Penghargaan')->first()->toArray();
+
+        return view('detailPersyaratan', compact('data', 'dataDokumen'));
     }
     public function tampilOrtu()
     {

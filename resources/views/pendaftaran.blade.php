@@ -34,7 +34,7 @@
                                         <input type="date" class="form-control" id="exampleInputUsername2"
                                             name="batas_waktu_pendaftaran" placeholder="mm/dd/yyyy"
                                             value="{{ isset($gelombang1->batas_waktu_pendaftaran) ? $gelombang1->batas_waktu_pendaftaran->format('Y-m-d') : old('batas_waktu_pendaftaran') }}"
-                                            min="{{ now()->format('Y-m-d') }}">
+                                            {{-- min="{{ now()->format('Y-m-d') }}" --}}>
                                     </div>
                             </div>
                             <div class="form-group row">

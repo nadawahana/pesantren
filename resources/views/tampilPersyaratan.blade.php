@@ -39,13 +39,13 @@
                                     </thead>
                                     <tbody>
                                         @if (!isset($data))
-                                            @foreach ($data as $index => $row)
+                                            {{-- @foreach ($data as $index => $row)
                                                 <tr>
                                                     <td>{{ $index + 1 }}</td>
                                                     <td>
-                                                        @if (isset($row->datasantri))
-                                                            @if ($datasantri->file_name)
-                                                                <img src="{{ asset('storage/files/' . $row->datasantri->file_name) }}"
+                                                        @if (isset($row->santri))
+                                                            @if ($santri->file_name)
+                                                                <img src="{{ asset('storage/files/' . $row->santri->file_name) }}"
                                                                     alt="..." class="rounded-circle">
                                                             @endif
                                                         @else
@@ -53,8 +53,36 @@
                                                                 class="img-thumbnail">
                                                         @endif
                                                     </td>
-                                                    <td>{{ $row->datasantri->nama_lengkap }}</td>
-                                                    <td>{{ $row->datasantri->nisn }}</td>
+                                                    <td>{{ $row->santri->nama_lengkap }}</td>
+                                                    <td>{{ $row->santri->nisn }}</td>
+                                                    <td>
+                                                        <a href="{{ route('tampilan-persyaratan-detail', $row->id) }}">
+                                                            Detail
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach --}}
+                                        @else
+                                            @foreach ($data as $row)
+                                                {{-- @php
+                                                    dd($row->santri->datasantri);
+                                                @endphp --}}
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>
+                                                        @if (isset($row->santri->datasantri))
+                                                            @if ($row->santri->datasantri->file_name)
+                                                                <img src="{{ asset('storage/files/' . $row->santri->datasantri->file_name) }}"
+                                                                    alt="..." class="rounded-circle">
+                                                            @endif
+                                                        @else
+                                                            <img src="{{ asset('images/noimage.jpg') }}"
+                                                                class="img-thumbnail">
+                                                        @endif
+                                                    </td>
+                                                    {{-- {{ dd($row->santri->nama_lengkap) }} --}}
+                                                    <td>{{ $row->santri->datasantri->nama_lengkap }}</td>
+                                                    <td>{{ $row->santri->datasantri->nisn }}</td>
                                                     <td>
                                                         <a href="{{ route('tampilan-persyaratan-detail', $row->id) }}">
                                                             Detail

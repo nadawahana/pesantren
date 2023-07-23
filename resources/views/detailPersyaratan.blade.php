@@ -15,7 +15,7 @@
             <div class="col-md-12 mb-3">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="font-weight-bold">Data Persyaratan {{ $data->datasantri->nama_lengkap }}</h3>
+                        <h3 class="font-weight-bold">Data Persyaratan {{ $data->santri->datasantri->nama_lengkap }}</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,8 @@
                                                 <tr>
                                                     <td>{{ $key }}</td>
                                                     <td>
-                                                        <a href="{{ asset('storage/persyaratan/' . $value) }}">
+                                                        <a href="{{ asset('storage/persyaratan/' . $value) }}"
+                                                            target="_blank">
                                                             Lihat
                                                         </a>
                                                     </td>
@@ -58,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        {{-- <div class="row mt-3">
             <div class="col-lg-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -174,7 +175,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- content-wrapper ends -->
     </div>
     <!-- main-panel ends -->
