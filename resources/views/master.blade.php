@@ -36,7 +36,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-2" href="/userhome"><img
+                <a class="navbar-brand brand-logo mr-2" href="#"><img
                         src="{{ asset('assets/skydash/images/logo1.png') }}" class="mr-2" alt="logo" /></a>
 
             </div>
@@ -113,7 +113,7 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <!-- <li class="nav-item active">
-            <a class="nav-link" href="/userhome">
+            <a class="nav-link" href="#">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Home</span>
             </a>
