@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DataNilaiSantriStoreRequest;
 use App\Http\Requests\DataNilaiSantriUpdateRequest;
+use Illuminate\Foundation\Auth\User as AuthUser;
 
 class user extends Controller
 {
@@ -148,6 +149,11 @@ class user extends Controller
 
     public function store(DataNilaiSantriStoreRequest $request)
     {
+        $user = UserModel::find($request->input('nama_santri'));
+        if ($this->checkData($user) == false) {
+            return redirect()->back()->with('message', "Data Peserta {$user->datasantri->nama_lengkap} (NISN : {$user->datasantri->nisn}) Belum Lengkap, Segera Lengkapi Data Anda!");
+        }
+        dd($user);
         $nilaiTotal = new NilaiTotal();
         $nilaiTotal->user_id = $request->input('nama_santri');
         $nilaiTotal->baca_alquran = $request->input('baca_alquran');
@@ -157,6 +163,20 @@ class user extends Controller
         $nilaiTotal->save();
 
         return redirect()->route('nilai-total.index')->with('message', 'Anda Berhasil Input Nilai Total');
+    }
+
+    public function checkData(UserModel $user)
+    {
+        $datasantri = $user->datasantri()->exists();
+        $dataBuktiTransfer = $user->dataBuktiTransfer()->exists();
+        $dataPersyaratan = $user->dataPersyaratan()->exists();
+        $dataNilai = $user->dataNilai()->exists();
+        // dd($datasantri, $dataBuktiTransfer, $dataPersyaratan, $dataNilai);
+        if ($datasantri && $dataBuktiTransfer && $dataPersyaratan && $dataNilai) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function update(DataNilaiSantriUpdateRequest $request, $id)
