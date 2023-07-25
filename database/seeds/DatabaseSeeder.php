@@ -24,9 +24,10 @@ class DatabaseSeeder extends Seeder
             'daftar_ulang' => now()->addDays(7),
         ]);
 
-        $this->call(UsersSeeder::class);
-        $this->call(DataSantriSeeder::class);
-        $this->call(DataOrtuSeeder::class);
-        $this->call(PersyaratanSeeder::class);
+        $this->call(StartSeeder::class);
+        // $this->call(UsersSeeder::class);
+        // $this->call(DataSantriSeeder::class);
+        // $this->call(DataOrtuSeeder::class);
+        // $this->call(PersyaratanSeeder::class);
     }
 }
