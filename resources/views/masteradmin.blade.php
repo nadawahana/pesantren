@@ -297,6 +297,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('data-daftar-ulang.index') }}" aria-expanded="false"
+                            aria-controls="icons">
+                            <i class="icon-paper menu-icon"></i>
+                            <span class="menu-title">Data Daftar Ulang</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/grafik" aria-expanded="false" aria-controls="icons">
                             <i class="icon-bar-graph menu-icon"></i>
                             <span class="menu-title">Data Grafik</span>
