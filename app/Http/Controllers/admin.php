@@ -45,9 +45,9 @@ class admin extends Controller
             // $request->session()->regenerate();
 
             if (Auth::user()->level == 'admin') {
-                return redirect()->intended('daftar')->with('message', 'Anda Berhasil Daftar Silahkan Login! ');
+                return redirect()->intended('daftar')->with('message', 'Anda Berhasil Login! ');
             } elseif (Auth::user()->level == 'calon-santri') {
-                return redirect()->intended('inputdaftar')->with('message', 'Anda Berhasil Daftar Silahkan Login!');
+                return redirect()->intended('inputdaftar')->with('message', 'Anda Berhasil Login!');
             }
         }
 
