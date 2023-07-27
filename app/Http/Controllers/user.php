@@ -153,7 +153,6 @@ class user extends Controller
         if ($this->checkData($user) == false) {
             return redirect()->back()->with('message', "Data Peserta {$user->datasantri->nama_lengkap} (NISN : {$user->datasantri->nisn}) Belum Lengkap, Segera Lengkapi Data Anda!");
         }
-        dd($user);
         $nilaiTotal = new NilaiTotal();
         $nilaiTotal->user_id = $request->input('nama_santri');
         $nilaiTotal->baca_alquran = $request->input('baca_alquran');
@@ -170,9 +169,8 @@ class user extends Controller
         $datasantri = $user->datasantri()->exists();
         $dataBuktiTransfer = $user->dataBuktiTransfer()->exists();
         $dataPersyaratan = $user->dataPersyaratan()->exists();
-        $dataNilai = $user->dataNilai()->exists();
         // dd($datasantri, $dataBuktiTransfer, $dataPersyaratan, $dataNilai);
-        if ($datasantri && $dataBuktiTransfer && $dataPersyaratan && $dataNilai) {
+        if ($datasantri && $dataBuktiTransfer && $dataPersyaratan) {
             return true;
         } else {
             return false;
