@@ -57,10 +57,12 @@ class AdminController extends Controller
 
     public function santriLulus()
     {
+        //SELECT count(id) FROM `users` where level="calon-santri" and status_kelulusan='1';
         $datasantri = DataSantri::with('user')
-            ->select('user_id', DB::raw('YEAR(created_at) as year'), DB::raw('count(*) as total'))
+            ->select('user_id', DB::raw('YEAR(created_at) as year'), DB::raw('count(id) as total'))
             ->whereHas('user', function ($q) {
                 $q->where('status_kelulusan', '1');
+                $q->where('level', 'calon-santri');
             })
             ->groupby('year')
             ->orderBy('year', 'desc')

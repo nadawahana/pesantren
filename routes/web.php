@@ -57,6 +57,7 @@ Route::middleware(['auth', 'CekLevel:admin'])->group(function () {
     Route::delete('/data-pembayaran/{id}', 'admin@destroy')->name('data-pembayaran.destroy');
     Route::post('/gelombang1', 'Gelombang2Controller@store')->name('post-gelombang1');
     Route::apiResource('/data-diri', 'TampilDataDiriController');
+    Route::resource('/data-daftar-ulang', 'DaftarUlangController')->only(['index', 'update']);
     Route::get('/nilai-total', 'user@get')->name('nilai-total.index');
     Route::post('/nilai-total', 'user@store')->name('nilai-total.store');
     Route::put('/nilai-total/{id}', 'user@update')->name('nilai-total.update');

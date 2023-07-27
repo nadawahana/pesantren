@@ -169,6 +169,7 @@ class user extends Controller
         $datasantri = $user->datasantri()->exists();
         $dataBuktiTransfer = $user->dataBuktiTransfer()->exists();
         $dataPersyaratan = $user->dataPersyaratan()->exists();
+        // dd($datasantri, $dataBuktiTransfer, $dataPersyaratan, $dataNilai);
         if ($datasantri && $dataBuktiTransfer && $dataPersyaratan) {
             return true;
         } else {
