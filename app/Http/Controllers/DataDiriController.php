@@ -95,12 +95,15 @@ class DataDiriController extends Controller
                 $status = $user->status_kelulusan; // Assuming the "status" field is available in the "data nilai total" table
                 if ($status == 0) {
                     return redirect()->back()->with('message', 'Kelulusan anda dalam tahapan proses, mohon untuk menunggu');
-                } elseif ($status == 1) {
+                } else {
                     //LULUS 
+                    // if ($user->dataDaftarUlang == null) {
+                    //     return redirect()->back()->with('message', 'Anda belum melakukan pendaftaran ulang');
+                    // } else {
+                    //     if ($user->dataDaftarUlang->status != 1)
+                    //         return redirect()->back()->with('message', 'Kelulusan anda dalam tahapan proses, mohon untuk menunggu');
+                    // }
                     return redirect()->route('userstatus');
-                } elseif ($status == 2) {
-                    //TIDAK LULUS 
-                    return redirect()->route('userstatus2'); // Redirect to the route to export PDF for users who passed the exam
                 }
             } else {
                 // User has not submitted the payment proof

@@ -102,7 +102,9 @@ class user extends Controller
     }
     public function userstatus()
     {
-        return view('userstatus');
+        $user = Auth::id();
+        $datasantri = DataSantri::where('user_id', $user)->first();
+        return view('userstatus', compact('datasantri', 'status'));
     }
     public function userstatus2()
     {

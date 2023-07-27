@@ -56,4 +56,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(NilaiTotal::class, 'user_id', 'id');
     }
+    public function dataDaftarUlang()
+    {
+        return $this->hasOne(tfUlang::class, 'user_id', 'id');
+    }
 }
