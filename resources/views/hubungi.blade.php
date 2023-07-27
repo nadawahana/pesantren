@@ -33,9 +33,9 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="template-demo">
-                                <a href="tel://6282389420436">
+                                <a href="tel://6282289132608">
                                     <button type="button" class="btn btn-social-icon-text btn-linkedin d-block mb-2"><i
-                                            class="ti-mobile"></i>+6282389420436</button>
+                                            class="ti-mobile"></i>+6282289132608</button>
                                 </a>
                                 <a href="https://instagram.com/thawalib.tanjung.limau?igshid=MzRlODBiNWFlZA==">
                                     <button type="button" class="btn btn-social-icon-text btn-dribbble d-block mb-2"><i

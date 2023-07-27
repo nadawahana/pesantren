@@ -486,12 +486,12 @@
                             <h4>
                                 CONTACT DETAILS
                             </h4>
-                            <a href="">
+                            <a href="tel://6282289132608">
                                 <div class="img-box">
                                     <img src="images/telephone-white.png" width="12px" alt="">
                                 </div>
                                 <p>
-                                    081291226567
+                                    +6282289132608
                                 </p>
                             </a>
                             <a href="">
@@ -508,13 +508,10 @@
                                 <a href="https://www.facebook.com/pondokpesantrenthawalibtanjunglimau">
                                     <img src="images/info-fb.png" alt="">
                                 </a>
-                                <a href="">
-                                    <img src="images/info-twitter.png" alt="">
-                                </a>
-                                <a href="https://www.instagram.com/twlb_tanjunglimau/">
+                                <a href="https://instagram.com/thawalib.tanjung.limau">
                                     <img src="images/instagram.png" alt="">
                                 </a>
-                                <a href="https://youtube.com/@blkkomunitasthawalibtanjun6805">
+                                <a href="https://www.youtube.com/@blkkomunitasthawalibtanjun6805">
                                     <img src="images/info-youtube.png" alt="">
                                 </a>
                             </div>
