@@ -343,10 +343,10 @@
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    Program Unggulan
+                    Pesantren Thawalib Tanjung Limau
                 </h2>
                 <p>
-                    Mau tau apa saja program unggulan yang ada pada Pondok Pesantren Thawalib Tanjung limau?
+                  Visualisasi Sebaran Pendaftar
                 </p>
             </div>
 
