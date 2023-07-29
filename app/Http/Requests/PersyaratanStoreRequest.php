@@ -32,7 +32,6 @@ class PersyaratanStoreRequest extends FormRequest
             'akta_kelahiran'    => 'required|mimes:png,jpg,pdf',
             'KIP'               => 'required|mimes:png,jpg,pdf',
             'smt1_kls6'         => 'sometimes|nullable',
-            'pas_foto'          => 'required|mimes:png,jpg',
             'KIP'               => 'sometimes|nullable',
             'tingkat'           => 'sometimes|nullable',
             'penghargaan'       => 'sometimes|nullable',
