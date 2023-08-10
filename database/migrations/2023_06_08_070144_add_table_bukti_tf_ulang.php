@@ -19,6 +19,10 @@ class AddTableBuktiTfUlang extends Migration
             $table->string('bukti_tf');
             $table->integer('status')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
     /**

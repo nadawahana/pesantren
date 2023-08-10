@@ -24,6 +24,10 @@ class AddTableNmrUjian extends Migration
             $table->string('asal_sekolah');
             $table->string('jalur_masuk');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 

@@ -54,6 +54,10 @@ class CreatePersyaratanTable extends Migration
             $table->string('KIP')->nullable();
             $table->string('penghargaan')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 

@@ -30,6 +30,10 @@ class AddDataOrtu extends Migration
             $table->string('alamat');
             $table->foreignId('user_id')->unique();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 

@@ -21,6 +21,10 @@ class AddDataNilai extends Migration
             $table->string('tahfidz');
             $table->string('ujian_tulisan');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 

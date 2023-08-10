@@ -26,6 +26,10 @@ class AddDataDiriCalonSantri extends Migration
             $table->string('file_name');
             $table->foreignId('user_id')->unique();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 
