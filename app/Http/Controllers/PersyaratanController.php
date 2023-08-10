@@ -20,7 +20,6 @@ class PersyaratanController extends Controller
         $file_smt1_kelas5 = null;
         $file_smt2_kelas5 = null;
         $file_smt1_kelas = null;
-        $file_pas_foto = $request->file('pas_foto')->store('public/persyaratan');
         $file_kip = null;
         $file_penghargaan = null;
 
@@ -58,7 +57,6 @@ class PersyaratanController extends Controller
                 'penghargaan' => $file_penghargaan ? basename($file_penghargaan) : null,
                 'ijazah' => basename($file_ijazah),
                 'akta_kelahiran' => basename($file_akta_kelahiran),
-                'pas_foto' => basename($file_pas_foto),
                 'pas_foto' => basename($file_kip),
                 'KIP' => $file_kip ? basename($file_kip) : null,
             ]

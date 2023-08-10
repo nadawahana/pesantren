@@ -73,16 +73,16 @@ Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::get('/hubungi', 'user@hubungi');
 
     Route::get('/userdatadaftar', 'user@userdatadaftar')->name('userdatadaftar');
-    Route::get('/persyaratan', 'user@persyaratan')->name('persyaratan'); //udah
+    Route::get('/persyaratan', 'user@persyaratan')->name('persyaratan');
     Route::post('/persyaratan', 'PersyaratanController@store')->name('post-persyaratan');
-    Route::get('/nomorujian', 'user@nomorujian'); //udah
+    Route::get('/nomorujian', 'user@nomorujian');
     Route::post('/post-nomor', 'NomorUjianController@store')->name('post-nomor');
-    Route::get('/buktitf', 'user@buktitf')->name('buktitf'); //udah
-    Route::get('/buktitfulang', 'user@buktitfulang'); //udah
+    Route::get('/buktitf', 'user@buktitf')->name('buktitf');
+    Route::get('/buktitfulang', 'user@buktitfulang');
     Route::post('/post/buktitfulang', 'tfUlangController@store')->name('post.tfUlang');
     Route::post('/bukti-bayar', 'BuktiTFController@store')->name('bukti-bayar');
-    Route::get('/userstatus', 'user@userstatus')->name('userstatus'); // masih gaje
-    Route::get('/userstatus2', 'user@userstatus2')->name('userstatus2'); // masih gaje
+    Route::get('/userstatus', 'user@userstatus')->name('userstatus');
+    Route::get('/userstatus2', 'user@userstatus2')->name('userstatus2');
     Route::get('/data-ortu', 'DataOrtuController@get')->name('data-ortu');
     Route::get('/statusKelulusan', 'DataDiriController@statusKelulusan')->name('statusKelulusan');
     Route::post('/post-data-ortu', 'DataOrtuController@store')->name('post-ortu');
