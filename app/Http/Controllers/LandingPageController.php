@@ -39,7 +39,6 @@ class LandingPageController extends Controller
             $gelombang1 = collect($gelombang1);
             $gelombang1 = $gelombang1->map(function ($value, $key) {
                 $result = null;
-                // Carbon::parse("2021-12-23T07:42:42.393Z")->
                 if ($key == 'batas_daftar_ulang') {
                     $result = Carbon::parse($value)->clone()->addDays(7);
                 } else {
@@ -61,9 +60,9 @@ class LandingPageController extends Controller
             $gelombang2 = $gelombang2->map(function ($value, $key) {
                 $result = null;
                 if ($key == 'batas_daftar_ulang') {
-                    $result = Carbon::createFromFormat('Y-m-d', $value)->clone()->addDays(7);
+                    $result = Carbon::parse($value)->clone()->addDays(7);
                 } else {
-                    $result = Carbon::createFromFormat('Y-m-d', $value);
+                    $result = Carbon::parse($value);
                 }
                 return $result->isoFormat('dddd, D MMMM Y');
             });
