@@ -13,7 +13,7 @@ class BuktiTFController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'bukti_tf' => 'required',
+            'bukti_tf' => 'required|file|mimes:png,jpg,pdf',
 
         ]);
         $filename = $request->bukti_tf->store('public/Pembayaran');

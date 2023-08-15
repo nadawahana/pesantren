@@ -12,7 +12,7 @@ class tfUlangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'buktiTf' => 'required|file'
+            'buktiTf' => 'required|file|mimes:png,jpg,pdf'
         ]);
 
         $buktiTf = $request->buktiTf->store('public/buktiTfUlang');
