@@ -159,6 +159,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('pemberitahuan.index') }}" aria-expanded="false"
+                            aria-controls="icons">
+                            <i class="icon-bar-graph menu-icon"></i>
+                            <span class="menu-title">Notifikasi</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/hubungi" aria-expanded="false" aria-controls="icons">
                             <i class="icon-contract menu-icon"></i>
                             <span class="menu-title">Hubungi</span>

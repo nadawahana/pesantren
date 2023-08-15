@@ -93,6 +93,9 @@ Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
     Route::get('export-pdf/{id}', 'DataDiriController@exportToPDF')->name('export-pdf');
     // Route::get('/check-payment-proof', 'YourController@checkPaymentProof')->name('check-payment-proof');
     Route::get('/check-payment-proof', 'DataDiriController@checkPaymentProof')->name('check-payment-proof');
+
+    Route::get('/pemberitahuan', 'NotifikasiSantriController@index')->name('pemberitahuan.index');
+    Route::put('/pemberitahuan/{notifikasi}', 'NotifikasiSantriController@gantiStatus')->name('pemberitahuan.status');
 });
 
 Route::get('/', 'LandingPageController')->name('landingPage');
