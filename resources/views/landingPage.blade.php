@@ -172,6 +172,30 @@
 
     <!-- end about section -->
 
+    <!-- grafik section -->
+    <section class="work_section">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Pesantren Thawalib Tanjung Limau
+                </h2>
+                <p>
+                    Visualisasi Sebaran Pendaftar
+                </p>
+            </div>
+
+            <div class="chart-container ">
+                <div id="grafik1" class="chart" class="bg-light">
+                </div>
+                <div id="grafik2" class="chart" class="bg-light">
+                </div>
+                <div id="grafik3" class="chart" class="bg-light">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- end grafik section -->
 
     <!-- service section -->
     <section class="service_section layout_padding">
@@ -338,30 +362,7 @@
     </section>
     <!-- end work section -->
 
-    <!-- grafik section -->
-    <section class="work_section">
-        <div class="container">
-            <div class="heading_container">
-                <h2>
-                    Pesantren Thawalib Tanjung Limau
-                </h2>
-                <p>
-                  Visualisasi Sebaran Pendaftar
-                </p>
-            </div>
 
-            <div class="chart-container ">
-                <div id="grafik1" class="chart" class="bg-light">
-                </div>
-                <div id="grafik2" class="chart" class="bg-light">
-                </div>
-                <div id="grafik3" class="chart" class="bg-light">
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- end grafik section -->
 
     <!-- team section -->
     <section class="team_section layout_padding2-bottom mt-3" id="berita">
