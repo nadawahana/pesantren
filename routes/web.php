@@ -2,6 +2,7 @@
 
 use App\Gelombang1;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\NotifikasiController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,8 @@ Route::middleware(['auth', 'CekLevel:admin'])->group(function () {
     Route::put('/nilai-total/{id}', 'user@update')->name('nilai-total.update');
     Route::delete('/nilai-total/{id}', 'user@destroy')->name('nilai-total.destroy');
     Route::get('/grafik', 'AdminController@grafik');
+
+    Route::resource('/notifikasi', 'NotifikasiController')->only(['index', 'create', 'store', 'delete']);
 });
 
 Route::middleware(['auth', 'CekLevel:calon-santri'])->group(function () {
